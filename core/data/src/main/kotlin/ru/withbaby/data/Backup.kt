@@ -42,6 +42,6 @@ object Backup {
    s.children.forEach { repo.dao.child(it) };s.trips.forEach { repo.dao.trip(it) };repo.dao.items(s.items)
    s.bags.forEach { repo.dao.bag(it) };s.stock.forEach { repo.dao.stock(it) };s.learning.filter { it.childId in childIds }.forEach { repo.dao.learning(it) }
   }
-  repo.preferences.save(s.settings.copy(notifications=false))
+  repo.preferences.save(s.settings.copy(notifications=false, palette=s.settings.palette?.takeIf { it in listOf("blue", "pink") } ?: "blue"))
  }
 }

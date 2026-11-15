@@ -33,6 +33,8 @@ import ru.withbaby.domain.*
  var edit by remember {mutableStateOf<PackingItem?>(null)};var adding by remember {mutableStateOf(false)}
  var deleting by remember {mutableStateOf(false)};var quick by remember {mutableStateOf(false)}
  var bagSheet by remember {mutableStateOf(false)}
+ var more by remember {mutableStateOf(false)}
+ var explanations by rememberSaveable(id) {mutableStateOf(false)}
  val context=LocalContext.current
  Page(Scenario.valueOf(trip.scenario).title,kicker="${trip.childName.uppercase()} · ${trip.hours} ЧАСОВ",back=back,actions={
   IconButton(onClick={vm.trip(trip.copy(favorite=!trip.favorite))}) {Glyph(R.drawable.ic_heart,if(trip.favorite) "Убрать из избранного" else "В избранное",tint=if(trip.favorite) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant)}
@@ -47,12 +49,13 @@ import ru.withbaby.domain.*
    Progress(items.count {it.packed},items.size)
    Button(onClick={quick=true},modifier=Modifier.fillMaxWidth()) {Glyph(R.drawable.ic_circle_check);Spacer(Modifier.width(10.dp));Text("Ничего не забыли?")}
   }
-  Text(trip.weatherNote,style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
+  if(explanations) Text(trip.weatherNote,style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
   Field(search,{search=it},"Поиск вещей в списке")
   FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),modifier=Modifier.fillMaxWidth()) {
    FilterChip(selected=onlyUnpacked,onClick={onlyUnpacked=!onlyUnpacked},label={Text("Осталось собрать")})
    TextButton(onClick={adding=true}) {Glyph(R.drawable.ic_plus);Text("Добавить")}
   }
+  TextButton(onClick={explanations=!explanations}) {Text(if(explanations) "Скрыть подсказки" else "Почему эти вещи в списке?")}
   val filtered=items.filter {it.name.contains(search,true) && (!onlyUnpacked || !it.packed)}
   if(filtered.isEmpty()) Empty(R.drawable.ic_check,"Список просмотрен","Здесь нет вещей по выбранному фильтру.")
   filtered.groupBy {it.category}.forEach { (category,list) ->
@@ -61,7 +64,7 @@ import ru.withbaby.domain.*
     SoftCard {
      Row(verticalAlignment=Alignment.CenterVertically) {
       Checkbox(checked=item.packed,onCheckedChange={vm.updateItem(item.copy(packed=it))})
-      Column(Modifier.weight(1f).clickable {edit=item}.padding(horizontal=4.dp)) {Text("${item.name} · ${item.count}",style=MaterialTheme.typography.titleMedium);Text(item.reason,style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}
+      Column(Modifier.weight(1f).clickable {edit=item}.padding(horizontal=4.dp)) {Text("${item.name} · ${item.count}",style=MaterialTheme.typography.titleMedium);if(explanations) Text(item.reason,style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}
       IconButton(onClick={edit=item}) {Glyph(R.drawable.ic_pencil,"Изменить ${item.name}")}
      }
      if(trip.completed) {
@@ -71,25 +74,28 @@ import ru.withbaby.domain.*
        FilterChip(selected=item.feedback == -1,onClick={vm.feedback(trip,item,if(item.feedback == -1) 0 else -1)},label={Text("Было лишним")})
       }
      }
-     TextButton(onClick={vm.deleteItem(item)}) {Text("Удалить из списка")}
     }
    }
   }
-  SoftCard {
-   ActionRow(R.drawable.ic_backpack,"Сверить с сумкой","Отметить вещи из выбранной сумки") {bagSheet=true}
-   ActionRow(R.drawable.ic_package,"Сохранить как шаблон сумки",onClick={vm.bagFromTrip(trip)})
-   if(!trip.completed) ActionRow(R.drawable.ic_bell,"Напомнить перед выходом","Примерно за 30 минут") {vm.remind(trip)}
-   ActionRow(R.drawable.ic_repeat_2,"Повторить выход","Новый список по текущим правилам") {vm.repeat(trip,open)}
-  }
+  OutlinedButton(onClick={more=true},modifier=Modifier.fillMaxWidth()) {Text("Ещё действия")}
   if(!trip.completed) Button(onClick={vm.finish(trip)},modifier=Modifier.fillMaxWidth().heightIn(min=52.dp)) {Text("Завершить выход")}
   else Text("Отметьте выше, чего не хватило и что было лишним. Корректировки применятся к следующим спискам этого ребёнка. Расходники списываются вручную в разделе «Сумка».",style=MaterialTheme.typography.bodyMedium)
-  TextButton(onClick={deleting=true}) {Text("Удалить выход",color=MaterialTheme.colorScheme.error)}
  }
- if(adding || edit!=null) ItemEditor(edit,id,vm::updateItem) {adding=false;edit=null}
+ if(adding || edit!=null) ItemEditor(edit,id,vm::updateItem,onDelete=vm::deleteItem) {adding=false;edit=null}
  if(deleting) Confirm("Удалить выход?","Список и заметки об этом выходе будут удалены.",onDismiss={deleting=false}) {vm.deleteTrip(trip);back()}
  if(quick) {
   val missing=items.filter {!it.packed}
   AlertDialog(onDismissRequest={quick=false},icon={Glyph(if(missing.isEmpty()) R.drawable.ic_circle_check else R.drawable.ic_backpack)},title={Text(if(missing.isEmpty()) "Всё собрано" else "Осталось ${missing.size} вещей")},text={Text(if(missing.isEmpty()) "Проверьте ключи, телефон и документы. Хорошего вам выхода!" else missing.take(12).joinToString("\n") {"${it.name} · ${it.count}"}+if(missing.size>12) "\nИ ещё ${missing.size-12}…" else "")},confirmButton={TextButton(onClick={quick=false}){Text("Вернуться к списку")}})
+ }
+ if(more) ModalBottomSheet(onDismissRequest={more=false}) {
+  Column(Modifier.padding(24.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
+   Text("Что ещё нужно?",style=MaterialTheme.typography.headlineSmall)
+   ActionRow(R.drawable.ic_backpack,"Взять вещи из сумки","Отметим то, что уже собрано") {more=false;bagSheet=true}
+   if(!trip.completed) ActionRow(R.drawable.ic_bell,"Напомнить о выходе","Примерно за 30 минут") {vm.remind(trip);more=false}
+   ActionRow(R.drawable.ic_repeat_2,"Собраться так же ещё раз",onClick={more=false;vm.repeat(trip,open)})
+   ActionRow(R.drawable.ic_package,"Создать сумку из этого списка",onClick={vm.bagFromTrip(trip);more=false})
+   ActionRow(R.drawable.ic_trash_2,"Удалить выход",onClick={more=false;deleting=true})
+  }
  }
  if(bagSheet) ModalBottomSheet(onDismissRequest={bagSheet=false}) {
   Column(Modifier.padding(24.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {

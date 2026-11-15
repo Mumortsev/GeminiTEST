@@ -30,6 +30,8 @@ class AppViewModel(app: Application): AndroidViewModel(app) {
  fun action(block: suspend () -> Unit) { viewModelScope.launch { try { block() } catch (e: CancellationException) { throw e } catch (e: Exception) { messages.send(if(e is javax.crypto.AEADBadTagException) "Неверный пароль или повреждённая копия" else "Не удалось выполнить действие. Проверьте данные и повторите попытку") } } }
  fun message(text: String) { action { messages.send(text) } }
  fun saveChild(child: Child,parent: String?=null) { action { repo.dao.child(child); if(parent!=null) repo.preferences.save(repo.preferences.settings.first().copy(parent=parent.trim())) } }
+ fun setPalette(value: String) {action {repo.preferences.palette(value)}}
+ fun setTheme(value: String) {action {repo.preferences.theme(value)}}
  fun saveSettings(s: Settings) { action { repo.preferences.save(s) } }
  fun updateItem(i: PackingItem) { action { repo.dao.items(listOf(i)) } }
  fun deleteItem(i: PackingItem) { action { repo.dao.deleteItem(i) } }

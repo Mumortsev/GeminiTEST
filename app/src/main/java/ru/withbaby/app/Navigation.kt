@@ -12,7 +12,7 @@ import ru.withbaby.data.*
 import androidx.navigation.NavGraph.Companion.findStartDestination
 
 private data class Destination(val route:String,val title:String,val icon:Int)
-private val destinations=listOf(Destination("home","Главная",R.drawable.ic_house),Destination("bags","Сумка",R.drawable.ic_backpack),Destination("history","История",R.drawable.ic_history),Destination("profile","Профиль",R.drawable.ic_user_round))
+private val destinations=listOf(Destination("home","Главная",R.drawable.ic_house),Destination("clothing","Одежда",R.drawable.ic_shirt),Destination("bags","Сумка",R.drawable.ic_backpack),Destination("history","История",R.drawable.ic_history),Destination("profile","Профиль",R.drawable.ic_user_round))
 @Composable fun BabyRoot(vm:AppViewModel,state:AppState) {
  val snackbar=remember { SnackbarHostState() }
  LaunchedEffect(vm) { for(message in vm.messages) snackbar.showSnackbar(message) }
@@ -21,8 +21,8 @@ private val destinations=listOf(Destination("home","Главная",R.drawable.i
  val main=destinations.any { it.route==route }
  BoxWithConstraints(Modifier.fillMaxSize()) {
   val wide=maxWidth>=700.dp
-  Scaffold(snackbarHost={SnackbarHost(snackbar)},bottomBar={
-   if(state.ready && state.settings.parent.isNotBlank() && state.local.children.isNotEmpty() && main && !wide) NavigationBar(containerColor=MaterialTheme.colorScheme.background) {
+  Scaffold(modifier=Modifier.auroraGlow(),containerColor=androidx.compose.ui.graphics.Color.Transparent,snackbarHost={SnackbarHost(snackbar)},bottomBar={
+   if(state.ready && state.settings.parent.isNotBlank() && state.local.children.isNotEmpty() && main && !wide) NavigationBar(containerColor=MaterialTheme.colorScheme.background.copy(alpha=.94f)) {
     destinations.forEach { d -> NavigationBarItem(selected=route==d.route,onClick={ nav.navigate(d.route) { popUpTo(nav.graph.findStartDestination().id) { saveState=true };launchSingleTop=true;restoreState=true } },icon={Glyph(d.icon)},label={Text(d.title)}) }
    }
   }) { padding ->
@@ -35,9 +35,10 @@ private val destinations=listOf(Destination("home","Главная",R.drawable.i
       if(!state.ready) { Box(Modifier.fillMaxSize(),contentAlignment=Alignment.Center){CircularProgressIndicator()} }
       else if(state.settings.parent.isBlank() || state.local.children.isEmpty()) { ChildEditor(null,true,vm,state,onClose={}) }
       else NavHost(navController=nav,startDestination="home") {
-       composable("home") { HomeScreen(state,vm,onCreate={nav.navigate("create")},onWeather={nav.navigate("weather")},onTrip={nav.navigate("trip/$it")}) }
+       composable("home") { HomeScreen(state,vm,onCreate={nav.navigate("create")},onWeather={nav.navigate("weather")},onClothing={nav.navigate("clothing")},onBags={nav.navigate("bags")},onTrip={nav.navigate("trip/$it")}) }
        composable("create") { CreateTripScreen(state,vm,{nav.popBackStack()}) {id -> nav.navigate("trip/$id") {popUpTo("create"){inclusive=true}}} }
        composable("trip/{id}") {b-> TripScreen(b.arguments?.getString("id").orEmpty(),state,vm,{nav.popBackStack()}) {id->nav.navigate("trip/$id")} }
+       composable("clothing") { ClothingScreen(state) {nav.navigate("weather")} }
        composable("bags") { BagScreen(state,vm) }
        composable("history") { HistoryScreen(state,vm) {nav.navigate("trip/$it")} }
        composable("profile") { ProfileScreen(state,vm,{nav.navigate("weather")},{nav.navigate("privacy")},{nav.navigate("about")}) }
@@ -51,27 +52,26 @@ private val destinations=listOf(Destination("home","Главная",R.drawable.i
   }
  }
 }
-@Composable fun HomeScreen(state:AppState,vm:AppViewModel,onCreate:()->Unit,onWeather:()->Unit,onTrip:(String)->Unit) {
- Page("Пойдём вместе",kicker="ДОБРЫЙ ДЕНЬ, ${state.settings.parent.uppercase()}") {
-  Surface(onClick=onCreate,color=MaterialTheme.colorScheme.primaryContainer,shape=androidx.compose.foundation.shape.RoundedCornerShape(32.dp)) {
-   Column(Modifier.padding(24.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
-    Text("Маленький выход.\nБольшое спокойствие.",style=MaterialTheme.typography.headlineMedium)
-    Row(verticalAlignment=Alignment.CenterVertically) {
-     Text("Всё нужное для малыша — в одном продуманном списке.",style=MaterialTheme.typography.bodyMedium,modifier=Modifier.weight(1f))
-     BagArt(Modifier.widthIn(max=112.dp))
-    }
-    Button(onClick=onCreate,modifier=Modifier.fillMaxWidth().heightIn(min=52.dp)) {Glyph(R.drawable.ic_plus);Spacer(Modifier.width(8.dp));Text("Подготовиться к выходу")}
+@Composable fun HomeScreen(state:AppState,vm:AppViewModel,onCreate:()->Unit,onWeather:()->Unit,onClothing:()->Unit,onBags:()->Unit,onTrip:(String)->Unit) {
+ Page("Пойдём гулять?",kicker="ПРИВЕТ, ${state.settings.parent.uppercase()}") {
+  AuroraCard {
+   Text("Всё готово.\nМожно просто быть рядом.",style=MaterialTheme.typography.headlineMedium)
+   Row(verticalAlignment=Alignment.CenterVertically) {
+    Text("Подскажем, что взять с собой и как одеть малыша.",style=MaterialTheme.typography.bodyMedium,modifier=Modifier.weight(1f))
+    BagArt(Modifier.widthIn(max=100.dp))
    }
+   Button(onClick=onCreate,modifier=Modifier.fillMaxWidth().heightIn(min=54.dp)) {Glyph(R.drawable.ic_plus);Spacer(Modifier.width(8.dp));Text("Собраться на выход")}
   }
   SoftCard {
-   ActionRow(R.drawable.ic_cloud_rain,if(state.settings.weatherEnabled) state.settings.city.substringBefore(',') else "Погода по вашему желанию",state.weather?.takeIf {it.matches(state.settings)}?.let { "${it.at(System.currentTimeMillis())?.temperature?.toInt()?.toString() ?: "—"} °C · ${if(it.isStale()) "Устаревший прогноз" else "Сохранённый прогноз"}" } ?: "Без неё списки тоже работают",onWeather)
+   ActionRow(R.drawable.ic_shirt,"Как одеть малыша","Готовый комплект по погоде",onClothing)
+   HorizontalDivider(color=MaterialTheme.colorScheme.outlineVariant.copy(alpha=.5f))
+   ActionRow(R.drawable.ic_backpack,"Моя сумка","Что уже собрано и что пополнить",onBags)
   }
   val active=state.local.trips.filter { !it.completed }
-  Section("Ближайшие выходы")
-  if(active.isEmpty()) Empty(R.drawable.ic_navigation,"Впереди что-то хорошее","Прогулка в парке или первая поездка? Соберём список под ваши планы.","Создать выход",onCreate)
-  else active.take(3).forEach {TripCard(it,state.local.items) {onTrip(it.id)}}
-  val favorites=state.local.trips.filter { it.favorite }
-  if(favorites.isNotEmpty()) {Section("Любимые маршруты");favorites.take(3).forEach {t->SoftCard {ActionRow(R.drawable.ic_repeat_2,ru.withbaby.domain.Scenario.valueOf(t.scenario).title,"Повторить для ${t.childName}") {vm.repeat(t,onTrip)}}} }
-  SoftCard(tone=MaterialTheme.colorScheme.secondaryContainer) { Text("Чуть меньше забот",style=MaterialTheme.typography.titleMedium);Text("Соберите постоянную сумку один раз. После выхода отмечайте использованное — так проще вовремя пополнить запасы.",style=MaterialTheme.typography.bodyMedium) }
+  if(active.isNotEmpty()) {Section("Ваши планы");active.take(3).forEach {TripCard(it,state.local.items) {onTrip(it.id)}}}
+  else Empty(R.drawable.ic_navigation,"Пока без планов","Выберите, куда идёте. Список нужных вещей составим за вас.","Создать выход",onCreate)
+  val forecast=state.weather?.takeIf {state.settings.weatherEnabled && it.matches(state.settings)}
+  ActionRow(R.drawable.ic_cloud_rain,if(state.settings.weatherEnabled && state.settings.city.isNotBlank()) "Погода · ${state.settings.city.substringBefore(',')}" else "Посмотреть погоду",
+   forecast?.let { "${it.at(System.currentTimeMillis())?.temperature?.toInt()?.toString() ?: "—"} °C · ${if(it.isStale()) "прогноз устарел" else "сохранено ${formatTime(it.fetched)}"}" } ?: "Можно выбрать город или обойтись без прогноза",onWeather)
  }
 }

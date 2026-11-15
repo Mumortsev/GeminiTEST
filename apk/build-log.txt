@@ -1,6 +1,6 @@
+> Task :core:domain:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
-> Task :core:domain:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:generateDebugBuildConfig UP-TO-DATE
@@ -13,19 +13,19 @@
 > Task :core:domain:classes UP-TO-DATE
 > Task :core:domain:jar UP-TO-DATE
 > Task :core:data:generateDebugResValues UP-TO-DATE
-> Task :core:data:generateDebugResources
-> Task :core:data:packageDebugResources
+> Task :core:data:generateDebugResources UP-TO-DATE
+> Task :core:data:packageDebugResources UP-TO-DATE
 > Task :core:data:extractDeepLinksDebug UP-TO-DATE
 > Task :core:data:processDebugManifest UP-TO-DATE
-> Task :core:data:compileDebugLibraryResources
+> Task :core:data:compileDebugLibraryResources UP-TO-DATE
+> Task :core:data:parseDebugLocalResources UP-TO-DATE
+> Task :core:data:generateDebugRFile UP-TO-DATE
+> Task :core:data:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkDebugAarMetadata UP-TO-DATE
 > Task :app:generateDebugResValues UP-TO-DATE
-> Task :app:mapDebugSourceSetPaths
-> Task :core:data:parseDebugLocalResources
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
 > Task :app:generateDebugResources UP-TO-DATE
-> Task :core:data:generateDebugRFile
-> Task :core:data:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :app:mergeDebugResources
+> Task :app:mergeDebugResources UP-TO-DATE
 > Task :app:packageDebugResources UP-TO-DATE
 > Task :app:parseDebugLocalResources UP-TO-DATE
 > Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
@@ -33,8 +33,7 @@
 > Task :app:processDebugMainManifest UP-TO-DATE
 > Task :app:processDebugManifest UP-TO-DATE
 > Task :app:processDebugManifestForPackage UP-TO-DATE
-> Task :core:data:kspDebugKotlin
-> Task :app:processDebugResources
+> Task :app:processDebugResources UP-TO-DATE
 > Task :core:data:javaPreCompileDebug UP-TO-DATE
 > Task :app:javaPreCompileDebug UP-TO-DATE
 > Task :app:mergeDebugShaders UP-TO-DATE
@@ -44,8 +43,8 @@
 > Task :core:data:compileDebugShaders NO-SOURCE
 > Task :core:data:generateDebugAssets UP-TO-DATE
 > Task :core:data:mergeDebugAssets UP-TO-DATE
-> Task :app:mergeDebugAssets
-> Task :app:compressDebugAssets
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
 > Task :app:desugarDebugFileDependencies UP-TO-DATE
 > Task :app:checkDebugDuplicateClasses UP-TO-DATE
 > Task :app:mergeExtDexDebug UP-TO-DATE
@@ -58,16 +57,17 @@
 > Task :app:validateSigningDebug UP-TO-DATE
 > Task :app:writeDebugAppMetadata UP-TO-DATE
 > Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :core:data:kspDebugKotlin
 > Task :core:data:compileDebugKotlin
 > Task :core:data:compileDebugJavaWithJavac NO-SOURCE
-> Task :core:data:bundleLibCompileToJarDebug
 > Task :core:data:bundleLibRuntimeToJarDebug
+> Task :core:data:bundleLibCompileToJarDebug
 > Task :core:data:processDebugJavaRes UP-TO-DATE
 > Task :core:data:bundleLibRuntimeToDirDebug
 > Task :app:mergeLibDexDebug
 
 > Task :app:compileDebugKotlin
-w: file:///workspace/GeminiTEST/app/src/main/java/ru/withbaby/app/WeatherScreen.kt:84:15 'fun requestSingleUpdate(p0: String, p1: LocationListener, p2: Looper?): Unit' is deprecated. Deprecated in Java.
+w: file:///workspace/GeminiTEST/app/src/main/java/ru/withbaby/app/ClothingScreen.kt:71:22 Condition is always 'true'.
 
 > Task :app:compileDebugJavaWithJavac UP-TO-DATE
 > Task :app:dexBuilderDebug
@@ -79,5 +79,5 @@ w: file:///workspace/GeminiTEST/app/src/main/java/ru/withbaby/app/WeatherScreen.
 > Task :app:createDebugApkListingFileRedirect UP-TO-DATE
 > Task :app:assembleDebug
 
-BUILD SUCCESSFUL in 13s
-59 actionable tasks: 20 executed, 39 up-to-date
+BUILD SUCCESSFUL in 9s
+59 actionable tasks: 10 executed, 49 up-to-date

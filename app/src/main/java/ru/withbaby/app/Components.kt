@@ -41,7 +41,7 @@ import ru.withbaby.domain.*
  }
 }
 @Composable fun SoftCard(modifier:Modifier=Modifier,tone:Color=MaterialTheme.colorScheme.surfaceVariant,content:@Composable ColumnScope.()->Unit) {
- Surface(modifier.fillMaxWidth(),shape=RoundedCornerShape(28.dp),color=tone) { Column(Modifier.padding(20.dp),verticalArrangement=Arrangement.spacedBy(12.dp),content=content) }
+ Surface(modifier.fillMaxWidth(),shape=RoundedCornerShape(28.dp),color=tone.copy(alpha=.91f)) { Column(Modifier.padding(20.dp),verticalArrangement=Arrangement.spacedBy(12.dp),content=content) }
 }
 @Composable fun Empty(icon:Int,title:String,detail:String,action:String?=null,onAction:()->Unit={}) {
  SoftCard {
@@ -108,4 +108,10 @@ fun formatTime(time:Long):String=DateTimeFormatter.ofPattern("d MMM, HH:mm",java
 }
 @Composable fun Confirm(title:String,text:String,confirm:String="Удалить",onDismiss:()->Unit,onConfirm:()->Unit) {
  AlertDialog(onDismissRequest=onDismiss,title={Text(title)},text={Text(text)},confirmButton={TextButton(onClick=onConfirm) {Text(confirm)}},dismissButton={TextButton(onClick=onDismiss){Text("Отмена")}})
+}
+
+@Composable fun AuroraCard(content:@Composable ColumnScope.()->Unit) {
+ Box(Modifier.fillMaxWidth().clip(RoundedCornerShape(28.dp)).auroraGlow(MaterialTheme.colorScheme.primaryContainer,card=true)) {
+  Column(Modifier.padding(24.dp),verticalArrangement=Arrangement.spacedBy(12.dp),content=content)
+ }
 }

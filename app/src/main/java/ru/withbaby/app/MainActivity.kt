@@ -26,7 +26,7 @@ class MainActivity: ComponentActivity() {
   enableEdgeToEdge()
   setContent {
    val vm:AppViewModel=viewModel();val state by vm.state.collectAsStateWithLifecycle()
-   BabyTheme(state.settings.theme) {
+   BabyTheme(state.settings.theme,state.settings.palette) {
     val lightBars=MaterialTheme.colorScheme.background.luminance()>.5f
     SideEffect { WindowCompat.getInsetsController(window,window.decorView).apply {isAppearanceLightStatusBars=lightBars;isAppearanceLightNavigationBars=lightBars} }
     BabyRoot(vm,state)
