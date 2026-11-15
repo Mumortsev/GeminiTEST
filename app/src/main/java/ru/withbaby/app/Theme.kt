@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
@@ -51,16 +52,16 @@ private fun type(size:Int,weight:FontWeight=FontWeight.Normal)=TextStyle(fontFam
  val dark=theme=="Тёмная" || theme=="Системная" && isSystemInDarkTheme()
  val colors=if(palette=="pink") {if(dark) pinkDark else pinkLight} else {if(dark) blueDark else blueLight}
  MaterialTheme(colorScheme=colors,
- typography=Typography(displaySmall=type(36,FontWeight.SemiBold),headlineLarge=type(30,FontWeight.SemiBold),headlineMedium=type(26,FontWeight.SemiBold),headlineSmall=type(22,FontWeight.SemiBold),titleLarge=type(20,FontWeight.SemiBold),titleMedium=type(16,FontWeight.SemiBold),titleSmall=type(14,FontWeight.SemiBold),bodyLarge=type(16),bodyMedium=type(14),bodySmall=type(12),labelLarge=type(14,FontWeight.SemiBold),labelMedium=type(12,FontWeight.SemiBold),labelSmall=type(11)),content=content)
+ typography=Typography(displaySmall=type(36,FontWeight.SemiBold),headlineLarge=type(30,FontWeight.SemiBold),headlineMedium=type(26,FontWeight.SemiBold),headlineSmall=type(22,FontWeight.SemiBold),titleLarge=type(20,FontWeight.SemiBold),titleMedium=type(16,FontWeight.SemiBold),titleSmall=type(14,FontWeight.SemiBold),bodyLarge=type(16),bodyMedium=type(14),bodySmall=type(13),labelLarge=type(14,FontWeight.SemiBold),labelMedium=type(12,FontWeight.SemiBold),labelSmall=type(12)),content={ CompositionLocalProvider(LocalContentColor provides colors.onBackground) {Surface(Modifier.fillMaxSize(),color=colors.background,contentColor=colors.onBackground,content=content)} })
 }
 
 /** Soft radial light, rendered on every supported Android version without blur layers. */
 @Composable fun Modifier.auroraGlow(base:Color=MaterialTheme.colorScheme.background,card:Boolean=false):Modifier {
  val colors=MaterialTheme.colorScheme
  val isDark=colors.background.luminance()<.5f
- val first=colors.primary.copy(alpha=if(isDark) .19f else .13f)
- val second=colors.secondary.copy(alpha=if(isDark) .16f else .10f)
- val third=colors.tertiary.copy(alpha=if(isDark) .10f else .08f)
+ val first=colors.primary.copy(alpha=if(isDark) .06f else .07f)
+ val second=colors.secondary.copy(alpha=if(isDark) .05f else .05f)
+ val third=colors.tertiary.copy(alpha=if(isDark) .04f else .04f)
  return drawWithCache {
   val radius=size.width*(if(card) .9f else 1.1f)
   val p1=Offset(size.width*.06f,size.height*(if(card) .08f else .04f))

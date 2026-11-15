@@ -7,6 +7,7 @@
 | Kotlin 2.1.20, kotlinx.coroutines (транзитивно) | runtime, Flow, suspend | Apache-2.0 |
 | AndroidX Compose BOM 2025.04.01 / Material3 / UI / Animation | интерфейс | Apache-2.0 |
 | AndroidX Activity 1.10.1, Lifecycle 2.9.0, Navigation 2.8.9, Core 1.16.0 | жизненный цикл, разрешения, навигация | Apache-2.0 |
+| ExifInterface 1.4.0 | ориентация выбранных пользователем фото | Apache-2.0 |
 | Room 2.7.0, SQLite AndroidX (транзитивно) | локальная БД | Apache-2.0 |
 | DataStore 1.1.4 | настройки | Apache-2.0 |
 | WorkManager 2.10.0 | фоновые обновления и напоминания | Apache-2.0 |
@@ -22,3 +23,5 @@
 **Weather data by Open-Meteo.com**, https://open-meteo.com/, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Приложение форматирует прогноз и выбирает ближайший час; данные могут отличаться от наблюдений на месте. Использование сервиса не означает его одобрения приложения.
 
 Изученные проекты и их лицензии, включая не включённый Lottie: [docs/RESEARCH.md](docs/RESEARCH.md).
+
+94 цветные иллюстрации одежды и предметов в art_*.xml — оригинальные материалы этого проекта, генерируются tools/generate_catalog.py. В отличие от навигационных Lucide, они не заимствованы из внешних библиотек.

@@ -41,7 +41,7 @@ import ru.withbaby.domain.*
  }
 }
 @Composable fun SoftCard(modifier:Modifier=Modifier,tone:Color=MaterialTheme.colorScheme.surfaceVariant,content:@Composable ColumnScope.()->Unit) {
- Surface(modifier.fillMaxWidth(),shape=RoundedCornerShape(28.dp),color=tone.copy(alpha=.91f)) { Column(Modifier.padding(20.dp),verticalArrangement=Arrangement.spacedBy(12.dp),content=content) }
+ Surface(modifier.fillMaxWidth(),shape=RoundedCornerShape(28.dp),color=tone,contentColor=if(tone==MaterialTheme.colorScheme.primaryContainer) MaterialTheme.colorScheme.onPrimaryContainer else if(tone==MaterialTheme.colorScheme.secondaryContainer) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onSurface) { Column(Modifier.padding(20.dp),verticalArrangement=Arrangement.spacedBy(12.dp),content=content) }
 }
 @Composable fun Empty(icon:Int,title:String,detail:String,action:String?=null,onAction:()->Unit={}) {
  SoftCard {
@@ -82,7 +82,7 @@ import ru.withbaby.domain.*
  Surface(onClick=open,color=MaterialTheme.colorScheme.surfaceVariant,shape=RoundedCornerShape(24.dp)) {
   Column(Modifier.padding(20.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
    Row(verticalAlignment=Alignment.CenterVertically) {
-    Column(Modifier.weight(1f)) { Text(Scenario.valueOf(trip.scenario).title,style=MaterialTheme.typography.titleLarge);Text("${trip.childName} · ${trip.hours} ч · ${if(trip.completed) "Завершено" else formatTime(trip.departure)}",style=MaterialTheme.typography.bodySmall) }
+    Column(Modifier.weight(1f)) { Text(Scenario.valueOf(trip.scenario).title,style=MaterialTheme.typography.titleLarge);Text("${trip.childName} · ${formatDuration(trip.hours)} · ${if(trip.completed) "Завершено" else formatTime(trip.departure)}",style=MaterialTheme.typography.bodySmall) }
     Glyph(if(trip.favorite) R.drawable.ic_heart else R.drawable.ic_chevron_right,tint=MaterialTheme.colorScheme.primary)
    }; Progress(own.count { it.packed },own.size)
   }
@@ -112,6 +112,12 @@ fun formatTime(time:Long):String=DateTimeFormatter.ofPattern("d MMM, HH:mm",java
 
 @Composable fun AuroraCard(content:@Composable ColumnScope.()->Unit) {
  Box(Modifier.fillMaxWidth().clip(RoundedCornerShape(28.dp)).auroraGlow(MaterialTheme.colorScheme.primaryContainer,card=true)) {
-  Column(Modifier.padding(24.dp),verticalArrangement=Arrangement.spacedBy(12.dp),content=content)
+  CompositionLocalProvider(LocalContentColor provides MaterialTheme.colorScheme.onPrimaryContainer) {Column(Modifier.padding(24.dp),verticalArrangement=Arrangement.spacedBy(12.dp),content=content)}
  }
+}
+
+fun russianCount(n:Int,one:String,few:String,many:String):String=if(n%100 in 11..14) many else when(n%10) {1->one;2,3,4->few;else->many}
+fun formatDuration(hours:Int):String {
+ val days=hours/24;val remainder=hours%24
+ return if(days==0) "$hours ч" else "$days ${russianCount(days,"сутки","суток","суток")}"+(if(remainder>0) " $remainder ч" else "")
 }

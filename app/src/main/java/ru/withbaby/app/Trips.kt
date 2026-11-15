@@ -33,19 +33,20 @@ import ru.withbaby.domain.*
  var edit by remember {mutableStateOf<PackingItem?>(null)};var adding by remember {mutableStateOf(false)}
  var deleting by remember {mutableStateOf(false)};var quick by remember {mutableStateOf(false)}
  var bagSheet by remember {mutableStateOf(false)}
+ var picture by remember {mutableStateOf<PackingItem?>(null)}
  var more by remember {mutableStateOf(false)}
  var explanations by rememberSaveable(id) {mutableStateOf(false)}
  val context=LocalContext.current
- Page(Scenario.valueOf(trip.scenario).title,kicker="${trip.childName.uppercase()} · ${trip.hours} ЧАСОВ",back=back,actions={
+ Page(Scenario.valueOf(trip.scenario).title,kicker="${trip.childName.uppercase()} · ${formatDuration(trip.hours).uppercase()}",back=back,actions={
   IconButton(onClick={vm.trip(trip.copy(favorite=!trip.favorite))}) {Glyph(R.drawable.ic_heart,if(trip.favorite) "Убрать из избранного" else "В избранное",tint=if(trip.favorite) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant)}
   IconButton(onClick={
-   val text=buildString {append("${Scenario.valueOf(trip.scenario).title} · ${trip.childName}\n${formatTime(trip.departure)} · ${trip.hours} ч\n\n");items.forEach {append("${if(it.packed) "[✓]" else "[ ]"} ${it.name} — ${it.count}\n")}}
+   val text=buildString {append("${Scenario.valueOf(trip.scenario).title} · ${trip.childName}\n${formatTime(trip.departure)} · ${formatDuration(trip.hours)}\n\n");items.forEach {append("${if(it.packed) "[✓]" else "[ ]"} ${it.name} — ${it.count}\n")}}
    context.startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).apply {type="text/plain";putExtra(Intent.EXTRA_TEXT,text)},"Поделиться списком"))
   }) {Glyph(R.drawable.ic_share_2,"Поделиться списком")}
  }) {
   SoftCard(tone=MaterialTheme.colorScheme.primaryContainer) {
    Text(if(trip.completed) "Выход завершён" else "Собираемся без суеты",style=MaterialTheme.typography.titleLarge)
-   Text("${formatTime(trip.departure)} · ${Transport.valueOf(trip.transport).title}",style=MaterialTheme.typography.bodySmall)
+   Text("${formatTime(trip.departure)} → ${formatTime(if(trip.returnAt>0) trip.returnAt else trip.departure+trip.hours*3600_000L)} · ${Transport.valueOf(trip.transport).title}",style=MaterialTheme.typography.bodySmall)
    Progress(items.count {it.packed},items.size)
    Button(onClick={quick=true},modifier=Modifier.fillMaxWidth()) {Glyph(R.drawable.ic_circle_check);Spacer(Modifier.width(10.dp));Text("Ничего не забыли?")}
   }
@@ -64,8 +65,9 @@ import ru.withbaby.domain.*
     SoftCard {
      Row(verticalAlignment=Alignment.CenterVertically) {
       Checkbox(checked=item.packed,onCheckedChange={vm.updateItem(item.copy(packed=it))})
-      Column(Modifier.weight(1f).clickable {edit=item}.padding(horizontal=4.dp)) {Text("${item.name} · ${item.count}",style=MaterialTheme.typography.titleMedium);if(explanations) Text(item.reason,style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}
-      IconButton(onClick={edit=item}) {Glyph(R.drawable.ic_pencil,"Изменить ${item.name}")}
+      ItemPicture(item.imageKey ?: BagIllustrations.infer(item.name),item.photo,item.name,Modifier.size(54.dp).clickable {picture=item})
+      Column(Modifier.weight(1f).clickable {edit=item}.padding(horizontal=4.dp)) {Text("${item.name} · ${item.count}",style=MaterialTheme.typography.titleMedium);if(explanations) Text(item.reason,style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant);Text("Изменить",style=MaterialTheme.typography.labelSmall,color=MaterialTheme.colorScheme.primary)}
+
      }
      if(trip.completed) {
       Text("Как пригодилась вещь?",style=MaterialTheme.typography.bodySmall)
@@ -81,7 +83,8 @@ import ru.withbaby.domain.*
   if(!trip.completed) Button(onClick={vm.finish(trip)},modifier=Modifier.fillMaxWidth().heightIn(min=52.dp)) {Text("Завершить выход")}
   else Text("Отметьте выше, чего не хватило и что было лишним. Корректировки применятся к следующим спискам этого ребёнка. Расходники списываются вручную в разделе «Сумка».",style=MaterialTheme.typography.bodyMedium)
  }
- if(adding || edit!=null) ItemEditor(edit,id,vm::updateItem,onDelete=vm::deleteItem) {adding=false;edit=null}
+ if(adding || edit!=null) ItemEditor(edit,id,vm::updateItem,vm=vm,onDelete=vm::deleteItem) {adding=false;edit=null}
+ picture?.let {i->PicturePreview(i.name,i.imageKey ?: BagIllustrations.infer(i.name),i.photo,i.reason) {picture=null}}
  if(deleting) Confirm("Удалить выход?","Список и заметки об этом выходе будут удалены.",onDismiss={deleting=false}) {vm.deleteTrip(trip);back()}
  if(quick) {
   val missing=items.filter {!it.packed}

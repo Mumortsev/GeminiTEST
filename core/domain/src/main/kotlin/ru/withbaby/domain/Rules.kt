@@ -18,7 +18,7 @@ object PackingRules {
  fun generate(birthday: LocalDate, feeding: Feeding, hours: Int, scenario: Scenario, transport: Transport,
    needs: String, conditions: Conditions?, swimming: Boolean, sleep: Boolean, adjustments: Map<String, Int>,
    config: RuleConfig = RuleConfig(), today: LocalDate = LocalDate.now()): List<Need> {
-  require(hours in 1..336)
+  require(hours in 1..1440)
   val months = ChronoUnit.MONTHS.between(birthday, today).coerceAtLeast(0)
   val result = linkedMapOf<String, Need>()
   fun add(n: String, q: Int, g: String, r: String) { result[n] = Need(n, q.coerceIn(1, 500), g, r) }

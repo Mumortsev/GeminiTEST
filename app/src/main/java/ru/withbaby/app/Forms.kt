@@ -3,6 +3,8 @@ package ru.withbaby.app
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -50,56 +52,70 @@ import java.time.*
  var childId by rememberSaveable {mutableStateOf(state.local.children.first().id)}
  val child=state.local.children.find {it.id==childId} ?: state.local.children.first()
  var scenarioName by rememberSaveable {mutableStateOf(Scenario.WALK.name)}
+ val longTrip=scenarioName in listOf(Scenario.TRAVEL.name,Scenario.NIGHT.name)
+ val overnight=scenarioName==Scenario.NIGHT.name
  var transportName by rememberSaveable {mutableStateOf(Transport.STROLLER.name)}
- var hours by rememberSaveable {mutableStateOf("2")}
- var customHours by rememberSaveable {mutableStateOf(false)}
+ var amount by rememberSaveable {mutableStateOf("2")}
+ var custom by rememberSaveable {mutableStateOf(false)}
  var departure by rememberSaveable {mutableLongStateOf(System.currentTimeMillis()+3600_000)}
+ var exactReturn by rememberSaveable {mutableLongStateOf(0)}
  var swim by rememberSaveable {mutableStateOf(false)};var sleep by rememberSaveable {mutableStateOf(false)}
  var details by rememberSaveable {mutableStateOf(false)}
  val creating by vm.creating.collectAsState()
  val context=LocalContext.current
  val pickerTheme=if(MaterialTheme.colorScheme.background.luminance()<.5f) android.R.style.Theme_Material_Dialog_Alert else android.R.style.Theme_Material_Light_Dialog_Alert
+ val number=amount.toIntOrNull()
+ val returnAt=if(exactReturn>0) exactReturn else if(longTrip) Instant.ofEpochMilli(departure).atZone(ZoneId.systemDefault()).plusDays((number ?: 1).toLong()).toInstant().toEpochMilli() else departure+(number ?: 1)*3600_000L
+ val elapsed=returnAt-departure
+ val hours=kotlin.math.ceil(elapsed/3600_000.0).toInt()
+ val valid=if(exactReturn>0) elapsed>0 && hours in 1..1440 else number!=null && number in (if(longTrip) 1..60 else 1..1440) && hours in 1..1440
  Page("Собраться на выход",kicker="ЧТО ВОЗЬМЁМ С СОБОЙ",back=back) {
-  if(state.local.children.size>1) Picker("С кем идём",child,state.local.children,{it.name},{childId=it.id})
-  else Text("Список для ${child.name}",style=MaterialTheme.typography.titleMedium)
-  Picker("Куда идём?",Scenario.valueOf(scenarioName),Scenario.entries.toList(),{it.title},{scenarioName=it.name})
-  Text("Надолго?",style=MaterialTheme.typography.titleMedium)
+  if(state.local.children.size>1) Picker("С кем идём",child,state.local.children,{it.name},{childId=it.id}) else Text("Список для ${child.name}",style=MaterialTheme.typography.titleMedium)
+  Picker("Куда идём?",Scenario.valueOf(scenarioName),Scenario.entries.toList(),{it.title},{scenarioName=it.name;amount=when(it) {Scenario.NIGHT->"1";Scenario.TRAVEL->"3";else->"2"};exactReturn=0;custom=false})
+  Text(if(overnight) "На сколько ночей?" else if(longTrip) "На сколько дней?" else "На сколько часов?",style=MaterialTheme.typography.titleMedium)
   FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-   listOf(1,2,4,8).forEach {h->FilterChip(selected=!customHours && hours==h.toString(),onClick={hours=h.toString();customHours=false},label={Text("$h ч")})}
-   FilterChip(selected=customHours,onClick={customHours=true},label={Text("Другое")})
+   (if(overnight) listOf(1,2,3,7) else if(longTrip) listOf(2,3,7,14) else listOf(1,2,4,8)).forEach {n->
+    FilterChip(selected=!custom && exactReturn==0L && amount==n.toString(),onClick={amount=n.toString();custom=false;exactReturn=0},label={Text(if(overnight) "$n ${russianCount(n,"ночь","ночи","ночей")}" else if(longTrip) "$n ${russianCount(n,"день","дня","дней")}" else "$n ч")})
+   }
+   FilterChip(selected=custom,onClick={custom=true;exactReturn=0},label={Text("Другое")})
   }
-  if(customHours) Field(hours,{hours=it.filter(Char::isDigit).take(3)},"Количество часов (от 1 до 336)",keyboard=KeyboardOptions(keyboardType=KeyboardType.Number))
+  if(custom) Field(amount,{amount=it.filter(Char::isDigit).take(4);exactReturn=0},if(overnight) "Ночей (1–60)" else if(longTrip) "Дней (1–60)" else "Часов (1–1440)",keyboard=KeyboardOptions(keyboardType=KeyboardType.Number))
   SoftCard {
-   Text("${Transport.valueOf(transportName).title} · ${formatTime(departure)}",style=MaterialTheme.typography.bodyMedium)
-   TextButton(onClick={details=!details}) {Text(if(details) "Скрыть детали" else "Изменить время и детали")}
+   Text("Когда выходим и возвращаемся",style=MaterialTheme.typography.titleMedium)
+   OutlinedButton(onClick={pickDateTime(context,departure,System.currentTimeMillis()-60000,System.currentTimeMillis()+365L*86400_000,pickerTheme) {newStart->val oldDuration=elapsed;departure=newStart;if(exactReturn>0) exactReturn=newStart+oldDuration}},modifier=Modifier.fillMaxWidth()) {Text("Выход: ${formatTime(departure)}")}
+   OutlinedButton(onClick={pickDateTime(context,returnAt,departure,departure+1440*3600_000L,pickerTheme) {exactReturn=it}},modifier=Modifier.fillMaxWidth()) {Text("Возвращение: ${formatTime(returnAt)}")}
+   if(valid) Text("Отсутствие: ${formatDuration(hours)}. Количество вещей учитывает всю поездку.",style=MaterialTheme.typography.bodySmall)
+   else Text("Возвращение должно быть позже выхода. Максимум — 60 суток.",color=MaterialTheme.colorScheme.error,style=MaterialTheme.typography.bodySmall)
+   TextButton(onClick={details=!details}) {Text(if(details) "Скрыть детали" else "Транспорт и дополнительные условия")}
    androidx.compose.animation.AnimatedVisibility(details) {
     Column(verticalArrangement=Arrangement.spacedBy(12.dp)) {
      Picker("Как добираемся?",Transport.valueOf(transportName),Transport.entries.toList(),{it.title},{transportName=it.name})
-     OutlinedButton(onClick={
-      val at=Instant.ofEpochMilli(departure).atZone(ZoneId.systemDefault())
-      DatePickerDialog(context,pickerTheme,{_,y,m,d->
-       TimePickerDialog(context,pickerTheme,{_,hh,mm->departure=LocalDateTime.of(y,m+1,d,hh,mm).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()},at.hour,at.minute,true).show()
-      },at.year,at.monthValue-1,at.dayOfMonth).apply {datePicker.minDate=System.currentTimeMillis()-60000;datePicker.maxDate=System.currentTimeMillis()+365L*86400_000}.show()
-     },modifier=Modifier.fillMaxWidth()) {Glyph(R.drawable.ic_clock);Spacer(Modifier.width(8.dp));Text("Когда выходим?")}
-     Toggle("Сон вне дома",sleep,{sleep=it});Toggle("Водные занятия",swim,{swim=it})
+     if(!overnight) Toggle("Сон вне дома",sleep,{sleep=it});Toggle("Водные занятия",swim,{swim=it})
     }
    }
   }
   val forecast=state.weather?.takeIf {state.settings.weatherEnabled && it.matches(state.settings) && !it.isStale()}?.at(departure)
-  Text(if(forecast!=null) "Учтём погоду: ${forecast.temperature.toInt()} °C, ветер и осадки." else "Погоду можно учесть самостоятельно — список работает и без прогноза.",style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
-  Button(enabled=!creating && hours.toIntOrNull() in 1..336,onClick={vm.create(child,Scenario.valueOf(scenarioName),hours.toInt(),Transport.valueOf(transportName),departure,swim,sleep,open)},modifier=Modifier.fillMaxWidth().heightIn(min=54.dp)) {if(creating) CircularProgressIndicator(Modifier.size(20.dp),strokeWidth=2.dp) else Text("Готово — показать список")}
+  Text(if(forecast!=null) "Погода на время выхода: ${forecast.temperature.toInt()} °C. Для долгой поездки проверьте прогноз на остальные дни отдельно." else "Список работает без прогноза. Погоду можно учесть самостоятельно.",style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
+  Button(enabled=!creating && valid,onClick={vm.create(child,Scenario.valueOf(scenarioName),hours,Transport.valueOf(transportName),departure,swim,sleep || overnight,open,returnAt=returnAt)},modifier=Modifier.fillMaxWidth().heightIn(min=54.dp)) {if(creating) CircularProgressIndicator(Modifier.size(20.dp),strokeWidth=2.dp) else Text("Показать список")}
  }
 }
-@Composable fun ItemEditor(item:PackingItem?,tripId:String,onSave:(PackingItem)->Unit,onDelete:((PackingItem)->Unit)?=null,dismiss:()->Unit) {
- var name by remember {mutableStateOf(item?.name ?: "")};var count by remember {mutableStateOf(item?.count?.toString() ?: "1")}
- AlertDialog(onDismissRequest=dismiss,title={Text(if(item==null) "Добавить вещь" else "Изменить вещь")},text={Column(verticalArrangement=Arrangement.spacedBy(12.dp)) {Field(name,{name=it.take(120)},"Название");Field(count,{count=it.filter(Char::isDigit).take(3)},"Количество",keyboard=KeyboardOptions(keyboardType=KeyboardType.Number));if(item!=null && onDelete!=null) TextButton(onClick={onDelete(item);dismiss()}) {Text("Удалить вещь",color=MaterialTheme.colorScheme.error)}}},confirmButton={TextButton(enabled=name.isNotBlank() && count.toIntOrNull() in 1..500,onClick={onSave(item?.copy(name=name.trim(),count=count.toInt()) ?: PackingItem(newId(),tripId,name.trim(),count.toInt(),"Моё","Добавлено вами"));dismiss()}){Text("Сохранить")}},dismissButton={TextButton(onClick=dismiss){Text("Отмена")}})
+private fun pickDateTime(context:android.content.Context,initial:Long,min:Long,max:Long,theme:Int,picked:(Long)->Unit) {
+ val at=Instant.ofEpochMilli(initial).atZone(ZoneId.systemDefault())
+ DatePickerDialog(context,theme,{_,y,m,d->TimePickerDialog(context,theme,{_,h,minute->picked(LocalDateTime.of(y,m+1,d,h,minute).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())},at.hour,at.minute,true).show()},at.year,at.monthValue-1,at.dayOfMonth).apply {datePicker.minDate=min;datePicker.maxDate=max}.show()
 }
-@Composable fun StockEditor(stock:Stock?,bagId:String,onSave:(Stock)->Unit,onDelete:((Stock)->Unit)?=null,dismiss:()->Unit) {
+@Composable fun ItemEditor(item:PackingItem?,tripId:String,onSave:(PackingItem)->Unit,vm:AppViewModel,onDelete:((PackingItem)->Unit)?=null,dismiss:()->Unit) {
+ var imageKey by remember {mutableStateOf(item?.imageKey)};var photo by remember {mutableStateOf(item?.photo)}
+ var name by remember {mutableStateOf(item?.name ?: "")};var count by remember {mutableStateOf(item?.count?.toString() ?: "1")}
+ AlertDialog(onDismissRequest=dismiss,title={Text(if(item==null) "Добавить вещь" else "Изменить вещь")},text={Column(Modifier.verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)) {PictureField(imageKey,photo,name,{key,file->imageKey=key;photo=file},vm::message);Field(name,{name=it.take(120)},"Название");Field(count,{count=it.filter(Char::isDigit).take(3)},"Количество",keyboard=KeyboardOptions(keyboardType=KeyboardType.Number));if(item!=null && onDelete!=null) TextButton(onClick={onDelete(item);dismiss()}) {Text("Удалить вещь",color=MaterialTheme.colorScheme.error)}}},confirmButton={TextButton(enabled=name.isNotBlank() && count.toIntOrNull() in 1..500,onClick={onSave(item?.copy(name=name.trim(),count=count.toInt(),imageKey=imageKey,photo=photo) ?: PackingItem(newId(),tripId,name.trim(),count.toInt(),"Моё","Добавлено вами",imageKey=imageKey,photo=photo));dismiss()}){Text("Сохранить")}},dismissButton={TextButton(onClick=dismiss){Text("Отмена")}})
+}
+@Composable fun StockEditor(stock:Stock?,bagId:String,onSave:(Stock)->Unit,vm:AppViewModel,onDelete:((Stock)->Unit)?=null,dismiss:()->Unit) {
+ var imageKey by remember {mutableStateOf(stock?.imageKey)};var photo by remember {mutableStateOf(stock?.photo)}
  var name by remember {mutableStateOf(stock?.name ?: "")};var count by remember {mutableStateOf(stock?.count?.toString() ?: "1")};var minimum by remember {mutableStateOf(stock?.minimum?.toString() ?: "1")}
- AlertDialog(onDismissRequest=dismiss,title={Text("Вещь в сумке")},text={Column(verticalArrangement=Arrangement.spacedBy(12.dp)) {
+ AlertDialog(onDismissRequest=dismiss,title={Text("Вещь в сумке")},text={Column(Modifier.verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+  PictureField(imageKey,photo,name,{key,file->imageKey=key;photo=file},vm::message)
   Field(name,{name=it.take(120)},"Название");Field(count,{count=it.filter(Char::isDigit).take(4)},"В наличии",keyboard=KeyboardOptions(keyboardType=KeyboardType.Number));Field(minimum,{minimum=it.filter(Char::isDigit).take(4)},"Пополнить, если меньше",keyboard=KeyboardOptions(keyboardType=KeyboardType.Number))
   if(stock!=null && onDelete!=null) TextButton(onClick={onDelete(stock);dismiss()}) {Text("Удалить вещь",color=MaterialTheme.colorScheme.error)}
- }},confirmButton={TextButton(enabled=name.isNotBlank() && count.toIntOrNull() in 0..9999 && minimum.toIntOrNull() in 0..9999,onClick={onSave(stock?.copy(name=name.trim(),count=count.toInt(),minimum=minimum.toInt()) ?: Stock(newId(),bagId,name.trim(),count.toInt(),minimum.toInt()));dismiss()}){Text("Сохранить")}},dismissButton={TextButton(onClick=dismiss){Text("Отмена")}})
+ }},confirmButton={TextButton(enabled=name.isNotBlank() && count.toIntOrNull() in 0..9999 && minimum.toIntOrNull() in 0..9999,onClick={onSave(stock?.copy(name=name.trim(),count=count.toInt(),minimum=minimum.toInt(),imageKey=imageKey,photo=photo) ?: Stock(newId(),bagId,name.trim(),count.toInt(),minimum.toInt(),imageKey=imageKey,photo=photo));dismiss()}){Text("Сохранить")}},dismissButton={TextButton(onClick=dismiss){Text("Отмена")}})
 }
 @Composable fun NameDialog(title:String,initial:String="",dismiss:()->Unit,save:(String)->Unit) {
  var name by remember {mutableStateOf(initial)}

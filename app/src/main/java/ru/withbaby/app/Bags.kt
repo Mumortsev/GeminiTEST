@@ -1,6 +1,8 @@
 package ru.withbaby.app
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import ru.withbaby.domain.BagIllustrations
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -13,6 +15,7 @@ import ru.withbaby.data.*
  var selected by rememberSaveable {mutableStateOf("")};val bag=state.local.bags.find {it.id==selected} ?: state.local.bags.firstOrNull()
  var create by remember {mutableStateOf(false)};var rename by remember {mutableStateOf(false)};var deleting by remember {mutableStateOf(false)}
  var add by remember {mutableStateOf(false)};var edit by remember {mutableStateOf<Stock?>(null)}
+ var picture by remember {mutableStateOf<Stock?>(null)}
  var search by rememberSaveable {mutableStateOf("")}
  Page("Сумка малыша",kicker="ПУСТЬ НУЖНОЕ БУДЕТ РЯДОМ",actions={IconButton(onClick={create=true}) {Glyph(R.drawable.ic_plus,"Новая сумка")}}) {
   if(bag==null) Empty(R.drawable.ic_backpack,"Ваша первая сумка","Сохраните постоянный набор и следите за запасами.","Создать сумку") {create=true}
@@ -33,8 +36,9 @@ import ru.withbaby.data.*
     SoftCard {
      Row(verticalAlignment=Alignment.CenterVertically) {
       Checkbox(checked=s.packed,onCheckedChange={vm.stock(s.copy(packed=it))})
-      Column(Modifier.weight(1f)) {Text(s.name,style=MaterialTheme.typography.titleMedium);Text("В наличии: ${s.count} · минимум ${s.minimum}",style=MaterialTheme.typography.bodySmall,color=if(s.count<s.minimum) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant)}
-      IconButton(onClick={edit=s}){Glyph(R.drawable.ic_pencil,"Изменить ${s.name}")}
+      ItemPicture(s.imageKey ?: BagIllustrations.infer(s.name),s.photo,s.name,Modifier.size(58.dp).clickable {picture=s})
+      Column(Modifier.weight(1f).padding(start=8.dp).clickable {edit=s}) {Text(s.name,style=MaterialTheme.typography.titleMedium);Text("В наличии: ${s.count} · минимум ${s.minimum}",style=MaterialTheme.typography.bodySmall,color=if(s.count<s.minimum) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant);Text("Изменить",style=MaterialTheme.typography.labelSmall,color=MaterialTheme.colorScheme.primary)}
+
      }
      Row(horizontalArrangement=Arrangement.spacedBy(6.dp)) {
       OutlinedButton(modifier=Modifier.weight(1f),contentPadding=PaddingValues(horizontal=8.dp),enabled=s.count>0,onClick={vm.consume(s)}) {Text("Использовали 1")}
@@ -46,8 +50,9 @@ import ru.withbaby.data.*
    TextButton(onClick={deleting=true}) {Text("Удалить сумку",color=MaterialTheme.colorScheme.error)}
   }
  }
+ picture?.let {i->PicturePreview(i.name,i.imageKey ?: BagIllustrations.infer(i.name),i.photo,"В наличии: ${i.count} · минимум ${i.minimum}") {picture=null}}
  if(create) NameDialog("Новая сумка",dismiss={create=false}) {val b=Bag(newId(),it);vm.saveBag(b);selected=b.id}
  if(rename && bag!=null) NameDialog("Название сумки",bag.name,{rename=false}) {vm.saveBag(bag.copy(name=it))}
  if(deleting && bag!=null) Confirm("Удалить сумку?","Все запасы этого шаблона будут удалены.",onDismiss={deleting=false}) {vm.deleteBag(bag);deleting=false}
- if((add || edit!=null) && bag!=null) StockEditor(edit,bag.id,vm::stock,onDelete=vm::deleteStock) {add=false;edit=null}
+ if((add || edit!=null) && bag!=null) StockEditor(edit,bag.id,vm::stock,vm=vm,onDelete=vm::deleteStock) {add=false;edit=null}
 }

@@ -2,6 +2,9 @@ package ru.withbaby.app
 
 import android.content.Intent
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -16,8 +19,8 @@ import ru.withbaby.data.*
 import ru.withbaby.domain.*
 import java.time.LocalDate
 
-@OptIn(ExperimentalLayoutApi::class)
-@Composable fun ClothingScreen(state:AppState,onWeather:()->Unit) {
+@OptIn(ExperimentalLayoutApi::class,ExperimentalMaterial3Api::class)
+@Composable fun ClothingScreen(state:AppState,vm:AppViewModel,onWardrobe:(String)->Unit,onWeather:()->Unit) {
  val now by produceState(System.currentTimeMillis()) {while(true) {delay(60_000);value=System.currentTimeMillis()}}
  val cache=state.weather?.takeIf {state.settings.weatherEnabled && it.matches(state.settings)}
  var manual by rememberSaveable {mutableStateOf(cache==null || cache.isStale() || cache.at(now)==null)}
@@ -36,9 +39,15 @@ import java.time.LocalDate
  val weather=if(manual) manualTemperature?.let {ClothingWeather(it,wind=if(windy) 25.0 else 0.0,rain=if(rainy) 1.0 else 0.0,uv=if(sunny) 4.0 else 0.0)}
   else at?.let {ClothingWeather(it.temperature,it.feels,it.wind,it.rain,it.uv)}
  val outfit=weather?.let {ClothingRules.suggest(LocalDate.parse(child.birthday),it,mode)}
+ val options=clothingOptions(child,weather,state.wardrobe)
+ val automatic=weather?.let {automaticOutfit(child,it,mode,options)}.orEmpty()
+ val selected=selectedOutfit(child,automatic,options,state.choices)
+ var choosing by remember {mutableStateOf<GarmentGroup?>(null)}
+ var addLayer by remember {mutableStateOf(false)}
  val context=LocalContext.current
  Page("Как одеть малыша",kicker="ОДЕЖДА ПО ПОГОДЕ") {
   if(state.local.children.size>1) Picker("Для кого",child,state.local.children,{it.name},{childId=it.id})
+  OutlinedButton(onClick={onWardrobe(child.id)},modifier=Modifier.fillMaxWidth()) {Text("Гардероб ${child.name}")}
   Text("${child.name}: подберём удобные слои для прогулки.",style=MaterialTheme.typography.bodyLarge)
   FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
    WalkMode.entries.forEach {m->FilterChip(selected=mode==m,onClick={modeName=m.name},label={Text(m.title)})}
@@ -76,18 +85,13 @@ import java.time.LocalDate
     }
     Text("${child.name} · ${mode.title.lowercase()}",style=MaterialTheme.typography.bodyMedium)
    }
-   outfit.pieces.forEachIndexed {index,piece->
-    SoftCard {
-     Row(horizontalArrangement=Arrangement.spacedBy(14.dp),verticalAlignment=Alignment.Top) {
-      Surface(color=MaterialTheme.colorScheme.primaryContainer,shape=androidx.compose.foundation.shape.CircleShape) {Text("${index+1}",modifier=Modifier.padding(horizontal=13.dp,vertical=8.dp),color=MaterialTheme.colorScheme.onPrimaryContainer,style=MaterialTheme.typography.titleSmall)}
-      Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(4.dp)) {
-       Text(piece.area,style=MaterialTheme.typography.labelMedium,color=MaterialTheme.colorScheme.primary)
-       Text(piece.name,style=MaterialTheme.typography.titleMedium)
-       Text(piece.detail,style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
-      }
-     }
-    }
+   val base=selected.filterKeys {it in listOf(GarmentGroup.TOP,GarmentGroup.BOTTOM,GarmentGroup.ONE)}
+   VisualLayerCard("Основа",base.values.filterNotNull(),{choosing=base.keys.firstOrNull() ?: GarmentGroup.TOP})
+   selected.filterKeys {it !in listOf(GarmentGroup.TOP,GarmentGroup.BOTTOM,GarmentGroup.ONE)}.forEach {(group,option)->
+    VisualLayerCard(group.title,listOfNotNull(option),{choosing=group})
    }
+   TextButton(onClick={addLayer=true}) {Glyph(R.drawable.ic_plus);Text("Добавить одежду или аксессуар")}
+   if(state.choices.any {it.childId==child.id && it.reference.isNotBlank()}) TextButton(onClick={vm.resetOutfit(child.id)}) {Text("Вернуть автоматический подбор")}
    SoftCard {Text("Взять с собой",style=MaterialTheme.typography.titleMedium);outfit.takeAlong.forEach {Text("• $it",style=MaterialTheme.typography.bodyMedium)}}
    Text(outfit.note,style=MaterialTheme.typography.bodyMedium)
    outfit.caution?.let {SoftCard(tone=MaterialTheme.colorScheme.secondaryContainer) {Text(it,style=MaterialTheme.typography.bodyMedium)}}
@@ -95,11 +99,36 @@ import java.time.LocalDate
     val text=buildString {
      append("Как одеть малыша · ${child.name}\n${mode.title}\n")
      if(manual) append("${weather.temperature} °C · условия указаны вручную\n") else append("${cache?.city} · ${formatTime(at!!.time)} · ${at.temperature.toInt()} °C, ощущается ${at.feels.toInt()} °C\nПрогноз сохранён ${formatTime(cache!!.fetched)}\n")
-     append("\n${outfit.title}\n");outfit.pieces.forEach {append("${it.area}: ${it.name}\n")};append("\nВзять с собой:\n");outfit.takeAlong.forEach {append("• $it\n")};append("\n${outfit.note}\n");outfit.caution?.let {append("$it\n")};append("Ориентир по одежде, не медицинская рекомендация. Подберите слои по ситуации.")
+     append("\n${outfit.title}\n");selected.forEach {(g,o)->if(o!=null) append("${g.title}: ${o.name}\n")};append("\nВзять с собой:\n");outfit.takeAlong.forEach {append("• $it\n")};append("\n${outfit.note}\n");outfit.caution?.let {append("$it\n")};append("Ориентир по одежде, не медицинская рекомендация. Подберите слои по ситуации.")
     }
     context.startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).apply {type="text/plain";putExtra(Intent.EXTRA_TEXT,text)},"Поделиться комплектом"))
    },modifier=Modifier.fillMaxWidth()) {Glyph(R.drawable.ic_share_2);Spacer(Modifier.width(8.dp));Text("Поделиться комплектом")}
    Text("Это ориентир, а не строгая инструкция. Оценивайте самочувствие малыша и условия на месте; при особых потребностях следуйте советам вашего специалиста.",style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
   } else if(manual) Text("Введите температуру — комплект появится сразу.",style=MaterialTheme.typography.bodyMedium)
+ }
+ choosing?.let {group->ClothingCarousel(child,group,group in listOf(GarmentGroup.TOP,GarmentGroup.BOTTOM,GarmentGroup.ONE),options,selected,vm) {choosing=null}}
+ if(addLayer) ModalBottomSheet(onDismissRequest={addLayer=false}) {
+  Column(Modifier.heightIn(max=600.dp).verticalScroll(rememberScrollState()).padding(24.dp)) {Text("Что добавить?",style=MaterialTheme.typography.headlineSmall);GarmentGroup.entries.filter {it !in listOf(GarmentGroup.TOP,GarmentGroup.BOTTOM,GarmentGroup.ONE)}.forEach {g->ActionRow(R.drawable.ic_plus,g.title,onClick={addLayer=false;choosing=g})}}
+ }
+
+}
+
+@Composable private fun VisualLayerCard(title:String,options:List<ClothingOption>,open:()->Unit) {
+ SoftCard {
+  Row(Modifier.fillMaxWidth().clickable(onClick=open),verticalAlignment=Alignment.CenterVertically) {
+   Column(Modifier.weight(1f)) {Text(title,style=MaterialTheme.typography.titleLarge);Text("Нажмите, чтобы выбрать",style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}
+   Glyph(R.drawable.ic_chevron_right)
+  }
+  if(options.isEmpty()) Text("Без этого слоя",style=MaterialTheme.typography.bodyMedium)
+  options.forEach {option->
+   Row(Modifier.fillMaxWidth().clickable(onClick=open),horizontalArrangement=Arrangement.spacedBy(14.dp),verticalAlignment=Alignment.CenterVertically) {
+    ItemPicture(option.imageKey,option.photo,option.name,Modifier.size(94.dp))
+    Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(4.dp)) {
+     Text(option.name,style=MaterialTheme.typography.titleMedium)
+     Text(if(option.owned) "Есть в гардеробе" else "Наличие не отмечено",style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
+     if(!option.suitable) Text("Ваш выбор: проверьте по погоде и возрасту",style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+   }
+  }
  }
 }

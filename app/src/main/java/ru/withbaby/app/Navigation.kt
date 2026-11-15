@@ -21,7 +21,7 @@ private val destinations=listOf(Destination("home","Главная",R.drawable.i
  val main=destinations.any { it.route==route }
  BoxWithConstraints(Modifier.fillMaxSize()) {
   val wide=maxWidth>=700.dp
-  Scaffold(modifier=Modifier.auroraGlow(),containerColor=androidx.compose.ui.graphics.Color.Transparent,snackbarHost={SnackbarHost(snackbar)},bottomBar={
+  Scaffold(modifier=Modifier.auroraGlow(),containerColor=androidx.compose.ui.graphics.Color.Transparent,contentColor=MaterialTheme.colorScheme.onBackground,snackbarHost={SnackbarHost(snackbar)},bottomBar={
    if(state.ready && state.settings.parent.isNotBlank() && state.local.children.isNotEmpty() && main && !wide) NavigationBar(containerColor=MaterialTheme.colorScheme.background.copy(alpha=.94f)) {
     destinations.forEach { d -> NavigationBarItem(selected=route==d.route,onClick={ nav.navigate(d.route) { popUpTo(nav.graph.findStartDestination().id) { saveState=true };launchSingleTop=true;restoreState=true } },icon={Glyph(d.icon)},label={Text(d.title)}) }
    }
@@ -38,7 +38,8 @@ private val destinations=listOf(Destination("home","Главная",R.drawable.i
        composable("home") { HomeScreen(state,vm,onCreate={nav.navigate("create")},onWeather={nav.navigate("weather")},onClothing={nav.navigate("clothing")},onBags={nav.navigate("bags")},onTrip={nav.navigate("trip/$it")}) }
        composable("create") { CreateTripScreen(state,vm,{nav.popBackStack()}) {id -> nav.navigate("trip/$id") {popUpTo("create"){inclusive=true}}} }
        composable("trip/{id}") {b-> TripScreen(b.arguments?.getString("id").orEmpty(),state,vm,{nav.popBackStack()}) {id->nav.navigate("trip/$id")} }
-       composable("clothing") { ClothingScreen(state) {nav.navigate("weather")} }
+       composable("clothing") { ClothingScreen(state,vm,{nav.navigate("wardrobe/$it")}) {nav.navigate("weather")} }
+       composable("wardrobe/{childId}") {b->WardrobeScreen(b.arguments?.getString("childId").orEmpty(),state,vm) {nav.popBackStack()}}
        composable("bags") { BagScreen(state,vm) }
        composable("history") { HistoryScreen(state,vm) {nav.navigate("trip/$it")} }
        composable("profile") { ProfileScreen(state,vm,{nav.navigate("weather")},{nav.navigate("privacy")},{nav.navigate("about")}) }

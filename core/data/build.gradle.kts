@@ -5,6 +5,7 @@ android { namespace = "ru.withbaby.data"; compileSdk = 35
  kotlinOptions { jvmTarget = "17" }
 }
 dependencies {
+ implementation("androidx.exifinterface:exifinterface:1.4.0")
  api(project(":core:domain"))
  implementation("androidx.core:core-ktx:1.16.0")
  api("androidx.room:room-runtime:2.7.0"); api("androidx.room:room-ktx:2.7.0"); ksp("androidx.room:room-compiler:2.7.0")
