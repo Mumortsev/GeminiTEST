@@ -6,3 +6,5 @@ local.properties
 .idea/
 *.jks
 *.keystore
+
+art_sources/originals/

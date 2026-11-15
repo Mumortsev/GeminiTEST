@@ -1,0 +1,1432 @@
+{
+  "style": "Generated photorealistic product imagery approved in conversation",
+  "format": "WebP",
+  "quality": 90,
+  "count": 94,
+  "resource_files": 60,
+  "total_bytes": 2962382,
+  "resources": {
+    "art_body_short": {
+      "file": "app/src/main/res/drawable-nodpi/art_body_short.webp",
+      "bytes": 51978,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "372ccba3ae413a29b45b037f03a6bb06da472a5f8f9801bf49a2d12f38270b44",
+      "webp_sha256": "963a6c27748f0581e787cb4066df50e6acbddcf6df68205b232d29966e6270d9"
+    },
+    "art_body_long": {
+      "file": "app/src/main/res/drawable-nodpi/art_body_long.webp",
+      "bytes": 51640,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "33c03efa5bbea4fdf9537887b7260706d3814686757370c7b36a89363bda17cd",
+      "webp_sha256": "eb2bd59f376bdecca5d81c4cdab9e847f567268554618086e12cfbaa7201f5c0"
+    },
+    "art_body_wrap": {
+      "file": "app/src/main/res/drawable-nodpi/art_body_wrap.webp",
+      "bytes": 30718,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "413650f7087ace7748607e73522ef59cf665ae3948ba24d6c9e298ae87214a24",
+      "webp_sha256": "fd213a2be0c28de3e1e73811c58f49c93018554bb413c63a2af8f8de2ddc806e"
+    },
+    "art_body_sleeveless": {
+      "file": "app/src/main/res/drawable-nodpi/art_body_sleeveless.webp",
+      "bytes": 34658,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "1a30e5f24a98fab494155745c7ada1e0ba63e92482e57e43ca2c72a9273397b3",
+      "webp_sha256": "56973c11b3645ef08412d54ec461fd4ef154c491370e5d1035c57326251cd53f"
+    },
+    "art_undershirt": {
+      "file": "app/src/main/res/drawable-nodpi/art_undershirt.webp",
+      "bytes": 24194,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "bba1c51e0f2d3ff02622dca95755673e623345c996028a5f17dbbc049c0835fd",
+      "webp_sha256": "113b456f776ac0af317ca24b6826192a286fca475a088afffb4ee7a4800d2438"
+    },
+    "art_tshirt": {
+      "file": "app/src/main/res/drawable-nodpi/art_tshirt.webp",
+      "bytes": 45798,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "af09e4d2a890bfac76b163f58a25f0de6149bd1ba1972406c6937698f1af70aa",
+      "webp_sha256": "f7cd3fac1f3d2a0e2c5fd01f40dad64f842b79077021dc7bf3c98a88f89aad01"
+    },
+    "art_longsleeve": {
+      "file": "app/src/main/res/drawable-nodpi/art_longsleeve.webp",
+      "bytes": 36492,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "bd464bbdfc37bba64447c8cdd8ae375c90e9b1fcb901f193e6ff474bd75bce03",
+      "webp_sha256": "f2105c9f758e25e45b619e1cc93768e23842d717f1776842774132110130bce4"
+    },
+    "art_tank": {
+      "file": "app/src/main/res/drawable-nodpi/art_tank.webp",
+      "bytes": 30492,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "09ba89620a0e307fc995e830be3f9651362f8f4712389e335016498c7782d49b",
+      "webp_sha256": "13d7205c17d93297adc3970d1846509fcac0c48490970b594f2d0a766dd819c8"
+    },
+    "art_shirt": {
+      "file": "app/src/main/res/drawable-nodpi/art_shirt.webp",
+      "bytes": 40440,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "e26d004bf9b951687e6c475858953b024eebb3e36a566ac955642aeb815d0de2",
+      "webp_sha256": "3339f8fea5040e3afd2662a6d1c30e7553da7bcb738456e2332c0842212b2fe4"
+    },
+    "art_thermal_top": {
+      "file": "app/src/main/res/drawable-nodpi/art_thermal_top.webp",
+      "bytes": 66384,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "c34e8286d101bd0b0d3cff7b05064b1b66f89d274118c02645ab7fc79d4854ab",
+      "webp_sha256": "468185c111f8063204cfc80f0a9f50aed55da3a8d7c4c07ea732447d07cd00b7"
+    },
+    "art_sliders": {
+      "file": "app/src/main/res/drawable-nodpi/art_sliders.webp",
+      "bytes": 16294,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "c1b850d2c39dae130ce4ac0a7a0848319aeceb79f5e8ffd6704a9b32abd253b5",
+      "webp_sha256": "140e98e08c9ae462db31799fe7c5fd7f420986351551c9af67be4d5ca28a10c2"
+    },
+    "art_baby_pants": {
+      "file": "app/src/main/res/drawable-nodpi/art_baby_pants.webp",
+      "bytes": 42734,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "8f500c03ed47e187b958dea8750fb9f59e71f18dc371ed077d38fc11b6228732",
+      "webp_sha256": "180a598423d79296aff530d213e633d5979def9dd86577f408945b51e2735f05"
+    },
+    "art_leggings": {
+      "file": "app/src/main/res/drawable-nodpi/art_leggings.webp",
+      "bytes": 32216,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "92dfa80f87b285a78c9ef74854c372229bc0d53cc5ef88cb0f604c11127e891d",
+      "webp_sha256": "6437706ee8a1779c2fcc08e3f2988af5799be08cf8c98d6358829ccba9fae742"
+    },
+    "art_trousers": {
+      "file": "app/src/main/res/drawable-nodpi/art_trousers.webp",
+      "bytes": 35312,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "12703db62da0bf03240707dd8a01ec3337b35aec4c15336a5ea2b67abc92b294",
+      "webp_sha256": "817b34ed3c38feef07d162d941386808842c760dd88d1c9f8bfde7bef7d69148"
+    },
+    "art_joggers": {
+      "file": "app/src/main/res/drawable-nodpi/art_joggers.webp",
+      "bytes": 54656,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "5e777602607f74b3e29db405a04bd72625bf457c7e70558fc9065675f18df631",
+      "webp_sha256": "c9b2c432872e1cf1bccc92011a4c175732c55b009cd4e0ed4116a99e77348966"
+    },
+    "art_shorts": {
+      "file": "app/src/main/res/drawable-nodpi/art_shorts.webp",
+      "bytes": 55330,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "e029f8b12c6f221477ae2bcac187499469609b615c7f1200655694e4983d9413",
+      "webp_sha256": "d53282614cd5178ed8bd70cd256dd6141ebcae3323f2f04810dd07cd26672eb1"
+    },
+    "art_bloomers": {
+      "file": "app/src/main/res/drawable-nodpi/art_bloomers.webp",
+      "bytes": 27522,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "5b5376f7706c1e4a5a932dc6ff49c06fdccce447673f9cf54001f6beb2f6732c",
+      "webp_sha256": "c55105c2c9d6f280c723987a831333a3bfee7dd082b476b9ea217f3297aa0df9"
+    },
+    "art_thermal_bottom": {
+      "file": "app/src/main/res/drawable-nodpi/art_thermal_bottom.webp",
+      "bytes": 56394,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "8c6a83b1a5e9b463bf05ad31ff6824023c87cb1d7b8d2aae108776f15d73d5f2",
+      "webp_sha256": "215a14e7f6b671c94f0557e4d86a43cdef95ab69570d6516c56952f7a33483cb"
+    },
+    "art_tights": {
+      "file": "app/src/main/res/drawable-nodpi/art_tights.webp",
+      "bytes": 31794,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "093fa47316c4c0af4098e0c36af249134c088e037fd648b71e166c6bbc079d8d",
+      "webp_sha256": "46de341632648aefc6bd63691e923820136a9fedb48c206d157e8fd72e8756a7"
+    },
+    "art_skirt": {
+      "file": "app/src/main/res/drawable-nodpi/art_skirt.webp",
+      "bytes": 48038,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "9c6999c45f67ba7fad6154804eac734132a310ddeba7df4c1d1ecace4b293149",
+      "webp_sha256": "1bceb8ed65fdf6294084acf9ac86ea0445f517497097e60be36bc4adc6b4a5dc"
+    },
+    "art_sleepsuit": {
+      "file": "app/src/main/res/drawable-nodpi/art_sleepsuit.webp",
+      "bytes": 22236,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "25a33a9f8273f562f16d336fee99c79827c99d89a5ce2b5c49ade8101abc0e18",
+      "webp_sha256": "171bb4fdba0d7ed6de28e0b536a982f2d406d308ece9b5519e0e9a9069e0f986"
+    },
+    "art_romper": {
+      "file": "app/src/main/res/drawable-nodpi/art_romper.webp",
+      "bytes": 28650,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "1ff133fe4a5382503ba618252e3906fe420ff30c216b834ec9c86e9a9ada19d5",
+      "webp_sha256": "404c4d138e0b3c35c41076df32f4a4807f6892391d4bd34a7ad4a1c61fdb9203"
+    },
+    "art_cotton_overall": {
+      "file": "app/src/main/res/drawable-nodpi/art_cotton_overall.webp",
+      "bytes": 25572,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "bad576fc36d1ffe3371dfbd782eec7029c1051b8cac51f4d9003bb6121495f5f",
+      "webp_sha256": "54d598a4cf6e66bc3b67ec072beec6bf448921051b688ebe750bb2946cbcd1a8"
+    },
+    "art_dress": {
+      "file": "app/src/main/res/drawable-nodpi/art_dress.webp",
+      "bytes": 49376,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "d05c990b9bceb46de1db60d9931b0fd68118c963b418beba05cbc96c35556570",
+      "webp_sha256": "789a4b99d2ff91c3f19932a3b73b092750b5e8c63a59873ac307619675015e05"
+    },
+    "art_dungarees": {
+      "file": "app/src/main/res/drawable-nodpi/art_dungarees.webp",
+      "bytes": 38384,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "c7ae2305ba78576f81593de94f17cccb3ec1f889c688e07b2b085e3ccfca1bc5",
+      "webp_sha256": "725952225c0680aaa427232ace5663f47f44f7588162d804c657cf6bfeb9e2c5"
+    },
+    "art_pyjamas": {
+      "file": "app/src/main/res/drawable-nodpi/art_pyjamas.webp",
+      "bytes": 19578,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "1710cedd3f5b9a17b711e3b2e067a3449a2308a556eae2345ed50f12cfbdb8df",
+      "webp_sha256": "c39c2a61cec1e6a7340ecc5786a5bf145b0f353f12607a7da8547c8930cbb4c7"
+    },
+    "art_cardigan": {
+      "file": "app/src/main/res/drawable-nodpi/art_cardigan.webp",
+      "bytes": 92114,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "64b76d63386a6a1e7f9042d189dc7846212ac3e3a51f17c39e239da02820d11d",
+      "webp_sha256": "30f4be8602683bb9735faa6f9febf9890ce1e52bd94ec4b00db61ec73fa34678"
+    },
+    "art_sweatshirt": {
+      "file": "app/src/main/res/drawable-nodpi/art_sweatshirt.webp",
+      "bytes": 52206,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "3206270a84f8174b83f3dad5822c723ea24128a67b7bedc18b900e2e370acc97",
+      "webp_sha256": "1e3dbac8362cb767769a1e391a5eef03ecbf8ce6ce278cc2ab5b74453d4a2639"
+    },
+    "art_hoodie": {
+      "file": "app/src/main/res/drawable-nodpi/art_hoodie.webp",
+      "bytes": 37572,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "b749f67ff6b3d183cf558ad02bc29846dbf6a835b48225472574728b215beec8",
+      "webp_sha256": "4e48b82231fe2c732e8292ae9c35424778299c331586f9a336a3442266ff6e19"
+    },
+    "art_fleece_jacket": {
+      "file": "app/src/main/res/drawable-nodpi/art_fleece_jacket.webp",
+      "bytes": 44082,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "a9466d4e76b3cdfef5641c5519db9c2742f557838544e1fdf0bc16f7126c68cb",
+      "webp_sha256": "2bee58ce59d565da1d2095f11a3a2b5f4bfbeff39475d2548e5bed576418c7ad"
+    },
+    "art_sweater": {
+      "file": "app/src/main/res/drawable-nodpi/art_sweater.webp",
+      "bytes": 84986,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "ea2c991c4e034b9828062e66957b491b0cbf8f4f1413d7124b8a7826cb9fbe9c",
+      "webp_sha256": "750188d9c6ac6535a9f1a435ba7f4f6a79a1208ffc65b439ac49465a01128612"
+    },
+    "art_vest": {
+      "file": "app/src/main/res/drawable-nodpi/art_vest.webp",
+      "bytes": 54924,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "45a405ab9b21ae7802f190c2f63234013a37a6033da183cc80cb63c511de0465",
+      "webp_sha256": "bacada17b2d5fe5f7b3fc33928412dcfd080a554ec62a3ef03755f82f712f688"
+    },
+    "art_fleece_suit": {
+      "file": "app/src/main/res/drawable-nodpi/art_fleece_suit.webp",
+      "bytes": 34034,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "5bae11d3bc282f94cc9c9219a3c7150c0d7880ed889cced3d224c7ac3cc0e272",
+      "webp_sha256": "a6812992cbf667f31d5e24350fa44fdb4e6591afe9ddb32021cd139a4e821edd"
+    },
+    "art_wool_suit": {
+      "file": "app/src/main/res/drawable-nodpi/art_wool_suit.webp",
+      "bytes": 47056,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "95a7db4735cf14951deffd43764e99180ece6db26447770e5500f9965c780712",
+      "webp_sha256": "0f42018babeb88038a67a62d061d6272d3d811b8326f07b4f162d9cfa4944f04"
+    },
+    "art_windbreaker": {
+      "file": "app/src/main/res/drawable-nodpi/art_windbreaker.webp",
+      "bytes": 33100,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "fbfe40c50865346e06aeaa44eaa78d6a2543527e02d24745334d1dddeefb5cfd",
+      "webp_sha256": "ba15cbd69ecb9eb9320bf5ee7c63598d874258e3ee18a66f78d5d76a8e91891c"
+    },
+    "art_raincoat": {
+      "file": "app/src/main/res/drawable-nodpi/art_raincoat.webp",
+      "bytes": 25142,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "9e01e3a9ab18ec89de0604103d636f0418c7385c9c734bc8a365d74be5e1a7d8",
+      "webp_sha256": "4c39e4dfef075f00377ea83abeb51c13792c7300c3a5edeaa96c52517e35a4fd"
+    },
+    "art_rain_suit": {
+      "file": "app/src/main/res/drawable-nodpi/art_rain_suit.webp",
+      "bytes": 28092,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "30622cd3f479238e7c5a1fa91d49e5d41516c267a4fc27885e6b78f2c2202473",
+      "webp_sha256": "6cd858b834ddeec0ad689ff31c468e9f486325cc32a40fb6774b9008d3068d8a"
+    },
+    "art_demi_suit": {
+      "file": "app/src/main/res/drawable-nodpi/art_demi_suit.webp",
+      "bytes": 33176,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "16beac63db833a3e28b368373e61ecbdd82b94cbb687d667058b6ee4a248aba9",
+      "webp_sha256": "97bcd433e14a7cbab132470516f29086a69a813ab690df407f7c86c268847aee"
+    },
+    "art_demi_jacket": {
+      "file": "app/src/main/res/drawable-nodpi/art_demi_jacket.webp",
+      "bytes": 40010,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "4940152891e7e4dbb1c1da09170c86a935aba6ef088b2ebe3f3aea6f1c7cb49d",
+      "webp_sha256": "c1ca704775e2de66d08168d7deb73b2b13d8e3ec7fe3cc77863e8a79b4b6193f"
+    },
+    "art_winter_suit": {
+      "file": "app/src/main/res/drawable-nodpi/art_winter_suit.webp",
+      "bytes": 43010,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "2150ac96c74b9c5e1799c6dcefb97d004947e1ffa9f2e461ca55844c54bf8940",
+      "webp_sha256": "f3fddbe03e02cf67658d8d352f2d5afc329ac4242d680adb5d2d1bcec24b485f"
+    },
+    "art_winter_jacket": {
+      "file": "app/src/main/res/drawable-nodpi/art_winter_jacket.webp",
+      "bytes": 48170,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "31f90b3184ae793281ed516eec0f03af2375e4032f1e88b5ae404a051e17d623",
+      "webp_sha256": "a959ce510312ae66508bb2e903cc2acd6408b4d734b1bc05f2bc1e277d24fa00"
+    },
+    "art_snow_pants": {
+      "file": "app/src/main/res/drawable-nodpi/art_snow_pants.webp",
+      "bytes": 30068,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "c614c2c0748e9df1c00294534bc7ae009d7efc1c94566ecbf1e76afaed5b5491",
+      "webp_sha256": "502e2655562632ab7e40112fbd6b4ca8411f51e53c36c4b4ff477905fee3089e"
+    },
+    "art_demi_pants": {
+      "file": "app/src/main/res/drawable-nodpi/art_demi_pants.webp",
+      "bytes": 29016,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "57d22a7f3db6960642f7e76339dde84c44a45e29c5c88bcd85aa874f28166bbd",
+      "webp_sha256": "fae57b878ee0727d0ef3cb431d532b664035e8bdcfe82d5d87c5314c37e5fb4d"
+    },
+    "art_rain_pants": {
+      "file": "app/src/main/res/drawable-nodpi/art_rain_pants.webp",
+      "bytes": 22104,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "bfb51b42c854008e6ada57bd17a359825bc72791d1e3265d847963b756a13add",
+      "webp_sha256": "2ba31c59b79fb2aa2a1f3019267942ec2d3b572f3bc0ffbbde2f57eb9a139156"
+    },
+    "art_bonnet": {
+      "file": "app/src/main/res/drawable-nodpi/art_bonnet.webp",
+      "bytes": 23470,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "8e04b0120b2db0848c30abdfee0dcb7cdaa88961b14133eb35ac54dadd6bb5bf",
+      "webp_sha256": "dfbb2e9b59646188b1f2ffc75b1e1519cca2487139ab6e203c42475909e42212"
+    },
+    "art_beanie": {
+      "file": "app/src/main/res/drawable-nodpi/art_beanie.webp",
+      "bytes": 38976,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "f9d2ce2dcc06756a3b66bc1e99ba2c181728ba5ec3784624e3640caf6f0d9c2a",
+      "webp_sha256": "d0da619338b0b04d26119ad7fc304b1a26f2267be5e414001e2ff348bc87feb0"
+    },
+    "art_warm_hat": {
+      "file": "app/src/main/res/drawable-nodpi/art_warm_hat.webp",
+      "bytes": 39044,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "3d9ffb09a7187716fd154a8173bc953be67e7742fac1fb236fc42ac09017052b",
+      "webp_sha256": "88e87b74be3f0835d51471a9f9545ac71aa9deed62484c009da117d8bcbfff54"
+    },
+    "art_balaclava": {
+      "file": "app/src/main/res/drawable-nodpi/art_balaclava.webp",
+      "bytes": 73740,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "4f4534aaecab49aa14ebe083324f304569bab4d3d1028a8e1389aabf88a8aeb3",
+      "webp_sha256": "df3c241f8b23fe813a469d4a044944b90925be989449d4a65f5ec8a4875a9d3f"
+    },
+    "art_sunhat": {
+      "file": "app/src/main/res/drawable-nodpi/art_sunhat.webp",
+      "bytes": 29506,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "2ea0902239749b105e66fbb67e723f7905d91ec9d37a5880320c7e2c9a3055da",
+      "webp_sha256": "483fa8bfa3dfb6aded580acabe64fc784798e97ce4c42da0f872e820249c04ee"
+    },
+    "art_cap": {
+      "file": "app/src/main/res/drawable-nodpi/art_cap.webp",
+      "bytes": 57688,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "105a566609ee88dee9e5aebbaf38c0c3624e222bc049add8bb2cec8d62ce6514",
+      "webp_sha256": "7e706036976dc77e1a8ddaf1f156d119b962ae52c462e0b616c5c49abb4cdfeb"
+    },
+    "art_socks": {
+      "file": "app/src/main/res/drawable-nodpi/art_socks.webp",
+      "bytes": 43882,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "377d821a68bddc64a1c1ee61d1a1c5ea57797664028833a41c0a0427dc65a2c3",
+      "webp_sha256": "e0a34cf3246863ede44522e205d379163a276c5f1ac45277f451d4ad9eb8b5e5"
+    },
+    "art_booties": {
+      "file": "app/src/main/res/drawable-nodpi/art_booties.webp",
+      "bytes": 41966,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "6e0b4daab1b4d9d04110130881505b7aa513d2c2adf5dfb9262c3a98bc074369",
+      "webp_sha256": "f0dd95a8428bbfcaab0d669eba1d2daf486f387e8e19dc7362d15ec07d8c7188"
+    },
+    "art_warm_booties": {
+      "file": "app/src/main/res/drawable-nodpi/art_warm_booties.webp",
+      "bytes": 34852,
+      "width": 768,
+      "height": 768,
+      "source_sha256": "97b9cc675ac946b88640c46402c64b3102d27fef797708e87359266dbf9c979a",
+      "webp_sha256": "711eaaaff50b595863a056b90c414489414d764acbdd629d8c9e0a5856a45f40"
+    },
+    "photo_sheet_01": {
+      "file": "app/src/main/res/drawable-nodpi/photo_sheet_01.webp",
+      "bytes": 180434,
+      "width": 1536,
+      "height": 1024,
+      "source_sha256": "7e05ae3779ac5a52a5e8f6807a7b7c9b30faef20cfe12c583ad086de918b3df2",
+      "webp_sha256": "022c1031a66f68a474973dfc96d7d2fa25c3b6c34edad006381ef77d34178e1c"
+    },
+    "photo_sheet_02": {
+      "file": "app/src/main/res/drawable-nodpi/photo_sheet_02.webp",
+      "bytes": 193378,
+      "width": 1536,
+      "height": 1024,
+      "source_sha256": "9cf832035187e8920fa8d44c81924bbe701ca9378ebcc4f5ff94b7405aacf4c7",
+      "webp_sha256": "b385e6728397c606b3e02bd6ec18ccd73b5c3958eac2d94448b67cb0e1c9f450"
+    },
+    "photo_sheet_03": {
+      "file": "app/src/main/res/drawable-nodpi/photo_sheet_03.webp",
+      "bytes": 87022,
+      "width": 1536,
+      "height": 1024,
+      "source_sha256": "3bcca0ff2e71878dcb8abd3f5ed5f7d3089406a56e7fdd0144e187ba90da0b6a",
+      "webp_sha256": "ac64da8f370e735b1d99b1d0354e891740d5a2791be295265254370fada75b0f"
+    },
+    "photo_sheet_04": {
+      "file": "app/src/main/res/drawable-nodpi/photo_sheet_04.webp",
+      "bytes": 73570,
+      "width": 1536,
+      "height": 1024,
+      "source_sha256": "4322dcbfb41472a42cc63ca9dc6f99ef835e189e156efc77b192eeadc458fd04",
+      "webp_sha256": "a97fc32dc3ef4af535a0feb48b447b9d0cc5fd8f148b03e8aea7dd31a30f9562"
+    },
+    "photo_sheet_05": {
+      "file": "app/src/main/res/drawable-nodpi/photo_sheet_05.webp",
+      "bytes": 98438,
+      "width": 1536,
+      "height": 1024,
+      "source_sha256": "d2c923132ac03e4d188e45511d52ccaec0156fb36612a1011695ec690dd1d027",
+      "webp_sha256": "b5db10010aa90e6df2ca19554fdff8e9da6c51f0ea8dfebaa286875425e4d7f0"
+    },
+    "photo_sheet_06": {
+      "file": "app/src/main/res/drawable-nodpi/photo_sheet_06.webp",
+      "bytes": 88128,
+      "width": 1536,
+      "height": 1024,
+      "source_sha256": "145ba32f1d0a920cff7e5eeb7a81cd12f89ee094c06d402c8845fa93a5db5d06",
+      "webp_sha256": "cab2329cc40c4dfe0440956aea8ee03bc793f6c449430fb15358d3155b78d284"
+    },
+    "photo_sheet_07": {
+      "file": "app/src/main/res/drawable-nodpi/photo_sheet_07.webp",
+      "bytes": 82546,
+      "width": 1536,
+      "height": 1024,
+      "source_sha256": "97b002e13d2f98344eeffb2f4668c97d6ec5225efdc7aa39c5c4c4f70d2312ce",
+      "webp_sha256": "cca8ebc41475e7ef966892c6bfe9a1facc463104ff30062493f05d21c8f18996"
+    }
+  },
+  "images": [
+    {
+      "id": "body_short",
+      "name": "Боди с коротким рукавом",
+      "resource": "art_body_short",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "body_long",
+      "name": "Боди с длинным рукавом",
+      "resource": "art_body_long",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "body_wrap",
+      "name": "Боди на запах",
+      "resource": "art_body_wrap",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "body_sleeveless",
+      "name": "Боди без рукавов",
+      "resource": "art_body_sleeveless",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "undershirt",
+      "name": "Распашонка",
+      "resource": "art_undershirt",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "tshirt",
+      "name": "Футболка",
+      "resource": "art_tshirt",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "longsleeve",
+      "name": "Лонгслив",
+      "resource": "art_longsleeve",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "tank",
+      "name": "Майка",
+      "resource": "art_tank",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "shirt",
+      "name": "Рубашка",
+      "resource": "art_shirt",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "thermal_top",
+      "name": "Термолонгслив",
+      "resource": "art_thermal_top",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "sliders",
+      "name": "Ползунки с закрытой стопой",
+      "resource": "art_sliders",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "baby_pants",
+      "name": "Мягкие штанишки",
+      "resource": "art_baby_pants",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "leggings",
+      "name": "Легинсы",
+      "resource": "art_leggings",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "trousers",
+      "name": "Брюки",
+      "resource": "art_trousers",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "joggers",
+      "name": "Джоггеры",
+      "resource": "art_joggers",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "shorts",
+      "name": "Шорты",
+      "resource": "art_shorts",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "bloomers",
+      "name": "Трусики-блумеры",
+      "resource": "art_bloomers",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "thermal_bottom",
+      "name": "Термолегинсы",
+      "resource": "art_thermal_bottom",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "tights",
+      "name": "Колготки",
+      "resource": "art_tights",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "skirt",
+      "name": "Юбка",
+      "resource": "art_skirt",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "sleepsuit",
+      "name": "Хлопковый слип",
+      "resource": "art_sleepsuit",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "romper",
+      "name": "Песочник",
+      "resource": "art_romper",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "cotton_overall",
+      "name": "Хлопковый комбинезон",
+      "resource": "art_cotton_overall",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "dress",
+      "name": "Платье",
+      "resource": "art_dress",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "dungarees",
+      "name": "Полукомбинезон",
+      "resource": "art_dungarees",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "pyjamas",
+      "name": "Пижама",
+      "resource": "art_pyjamas",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "cardigan",
+      "name": "Кардиган",
+      "resource": "art_cardigan",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "sweatshirt",
+      "name": "Свитшот",
+      "resource": "art_sweatshirt",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "hoodie",
+      "name": "Толстовка с капюшоном",
+      "resource": "art_hoodie",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "fleece_jacket",
+      "name": "Флисовая кофта",
+      "resource": "art_fleece_jacket",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "sweater",
+      "name": "Вязаный джемпер",
+      "resource": "art_sweater",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "vest",
+      "name": "Жилет",
+      "resource": "art_vest",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "fleece_suit",
+      "name": "Флисовый комбинезон",
+      "resource": "art_fleece_suit",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "wool_suit",
+      "name": "Шерстяная поддёва",
+      "resource": "art_wool_suit",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "windbreaker",
+      "name": "Ветровка",
+      "resource": "art_windbreaker",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "raincoat",
+      "name": "Дождевик",
+      "resource": "art_raincoat",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "rain_suit",
+      "name": "Непромокаемый комбинезон",
+      "resource": "art_rain_suit",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "demi_suit",
+      "name": "Демисезонный комбинезон",
+      "resource": "art_demi_suit",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "demi_jacket",
+      "name": "Демисезонная куртка",
+      "resource": "art_demi_jacket",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "winter_suit",
+      "name": "Зимний комбинезон",
+      "resource": "art_winter_suit",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "winter_jacket",
+      "name": "Зимняя куртка",
+      "resource": "art_winter_jacket",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "snow_pants",
+      "name": "Утеплённый полукомбинезон",
+      "resource": "art_snow_pants",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "demi_pants",
+      "name": "Демисезонные непромокаемые брюки",
+      "resource": "art_demi_pants",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "rain_pants",
+      "name": "Дождевые брюки",
+      "resource": "art_rain_pants",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "bonnet",
+      "name": "Хлопковый чепчик",
+      "resource": "art_bonnet",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "beanie",
+      "name": "Тонкая шапка",
+      "resource": "art_beanie",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "warm_hat",
+      "name": "Тёплая шапка",
+      "resource": "art_warm_hat",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "balaclava",
+      "name": "Шапка-шлем",
+      "resource": "art_balaclava",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "sunhat",
+      "name": "Панама",
+      "resource": "art_sunhat",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "cap",
+      "name": "Кепка",
+      "resource": "art_cap",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "socks",
+      "name": "Тонкие носки",
+      "resource": "art_socks",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "booties",
+      "name": "Мягкие пинетки",
+      "resource": "art_booties",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "warm_booties",
+      "name": "Утеплённые пинетки",
+      "resource": "art_warm_booties",
+      "columns": 1,
+      "rows": 1,
+      "index": 0,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "id": "warm_socks",
+      "name": "Тёплые носки",
+      "resource": "photo_sheet_01",
+      "columns": 3,
+      "rows": 2,
+      "index": 0,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "sandals",
+      "name": "Сандалии",
+      "resource": "photo_sheet_01",
+      "columns": 3,
+      "rows": 2,
+      "index": 1,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "sneakers",
+      "name": "Кроссовки",
+      "resource": "photo_sheet_01",
+      "columns": 3,
+      "rows": 2,
+      "index": 2,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "demi_boots",
+      "name": "Демисезонные ботинки",
+      "resource": "photo_sheet_01",
+      "columns": 3,
+      "rows": 2,
+      "index": 3,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "winter_boots",
+      "name": "Зимние ботинки",
+      "resource": "photo_sheet_01",
+      "columns": 3,
+      "rows": 2,
+      "index": 4,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "rain_boots",
+      "name": "Резиновые сапоги",
+      "resource": "photo_sheet_01",
+      "columns": 3,
+      "rows": 2,
+      "index": 5,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "mittens",
+      "name": "Тёплые варежки",
+      "resource": "photo_sheet_02",
+      "columns": 3,
+      "rows": 2,
+      "index": 0,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "gloves",
+      "name": "Лёгкие перчатки",
+      "resource": "photo_sheet_02",
+      "columns": 3,
+      "rows": 2,
+      "index": 1,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "scratch_mitts",
+      "name": "Хлопковые рукавички",
+      "resource": "photo_sheet_02",
+      "columns": 3,
+      "rows": 2,
+      "index": 2,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "footmuff",
+      "name": "Конверт для коляски",
+      "resource": "photo_sheet_02",
+      "columns": 3,
+      "rows": 2,
+      "index": 3,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "blanket",
+      "name": "Лёгкий плед",
+      "resource": "photo_sheet_02",
+      "columns": 3,
+      "rows": 2,
+      "index": 4,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "stroller_rain",
+      "name": "Дождевик для коляски",
+      "resource": "photo_sheet_02",
+      "columns": 3,
+      "rows": 2,
+      "index": 5,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "sunshade",
+      "name": "Козырёк от солнца",
+      "resource": "photo_sheet_03",
+      "columns": 3,
+      "rows": 2,
+      "index": 0,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_diaper",
+      "name": "Подгузник",
+      "resource": "photo_sheet_03",
+      "columns": 3,
+      "rows": 2,
+      "index": 1,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_wipes",
+      "name": "Влажные салфетки",
+      "resource": "photo_sheet_03",
+      "columns": 3,
+      "rows": 2,
+      "index": 2,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_bags",
+      "name": "Пакеты для использованных вещей",
+      "resource": "photo_sheet_03",
+      "columns": 3,
+      "rows": 2,
+      "index": 3,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_swaddle",
+      "name": "Пелёнка",
+      "resource": "photo_sheet_03",
+      "columns": 3,
+      "rows": 2,
+      "index": 4,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_bottle",
+      "name": "Бутылочка",
+      "resource": "photo_sheet_03",
+      "columns": 3,
+      "rows": 2,
+      "index": 5,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_formula",
+      "name": "Смесь",
+      "resource": "photo_sheet_04",
+      "columns": 3,
+      "rows": 2,
+      "index": 0,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_water",
+      "name": "Вода",
+      "resource": "photo_sheet_04",
+      "columns": 3,
+      "rows": 2,
+      "index": 1,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_snack",
+      "name": "Перекус",
+      "resource": "photo_sheet_04",
+      "columns": 3,
+      "rows": 2,
+      "index": 2,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_cup",
+      "name": "Поильник",
+      "resource": "photo_sheet_04",
+      "columns": 3,
+      "rows": 2,
+      "index": 3,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_toy",
+      "name": "Игрушка",
+      "resource": "photo_sheet_04",
+      "columns": 3,
+      "rows": 2,
+      "index": 4,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_documents",
+      "name": "Документы",
+      "resource": "photo_sheet_04",
+      "columns": 3,
+      "rows": 2,
+      "index": 5,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_medical_notes",
+      "name": "Медицинские записи",
+      "resource": "photo_sheet_05",
+      "columns": 3,
+      "rows": 2,
+      "index": 0,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_bib",
+      "name": "Нагрудник",
+      "resource": "photo_sheet_05",
+      "columns": 3,
+      "rows": 2,
+      "index": 1,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_towel",
+      "name": "Полотенце",
+      "resource": "photo_sheet_05",
+      "columns": 3,
+      "rows": 2,
+      "index": 2,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_swim",
+      "name": "Купальные принадлежности",
+      "resource": "photo_sheet_05",
+      "columns": 3,
+      "rows": 2,
+      "index": 3,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_nursing_pads",
+      "name": "Вкладыши для кормления",
+      "resource": "photo_sheet_05",
+      "columns": 3,
+      "rows": 2,
+      "index": 4,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_pacifier",
+      "name": "Пустышка",
+      "resource": "photo_sheet_05",
+      "columns": 3,
+      "rows": 2,
+      "index": 5,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_cream",
+      "name": "Крем",
+      "resource": "photo_sheet_06",
+      "columns": 3,
+      "rows": 2,
+      "index": 0,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_thermos",
+      "name": "Термос",
+      "resource": "photo_sheet_06",
+      "columns": 3,
+      "rows": 2,
+      "index": 1,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_changing_mat",
+      "name": "Коврик для переодевания",
+      "resource": "photo_sheet_06",
+      "columns": 3,
+      "rows": 2,
+      "index": 2,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_stroller",
+      "name": "Коляска",
+      "resource": "photo_sheet_06",
+      "columns": 3,
+      "rows": 2,
+      "index": 3,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_carrier",
+      "name": "Переноска",
+      "resource": "photo_sheet_06",
+      "columns": 3,
+      "rows": 2,
+      "index": 4,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_carseat",
+      "name": "Автокресло",
+      "resource": "photo_sheet_06",
+      "columns": 3,
+      "rows": 2,
+      "index": 5,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_medicine",
+      "name": "Назначенные средства",
+      "resource": "photo_sheet_07",
+      "columns": 3,
+      "rows": 2,
+      "index": 0,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_phone",
+      "name": "Телефон",
+      "resource": "photo_sheet_07",
+      "columns": 3,
+      "rows": 2,
+      "index": 1,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_keys",
+      "name": "Ключи",
+      "resource": "photo_sheet_07",
+      "columns": 3,
+      "rows": 2,
+      "index": 2,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_container",
+      "name": "Контейнер",
+      "resource": "photo_sheet_07",
+      "columns": 3,
+      "rows": 2,
+      "index": 3,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "bag_bag",
+      "name": "Своя вещь",
+      "resource": "photo_sheet_07",
+      "columns": 3,
+      "rows": 2,
+      "index": 4,
+      "width": 512,
+      "height": 512
+    }
+  ]
+}

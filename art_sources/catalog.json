@@ -1,0 +1,802 @@
+[
+  {
+    "id": "body_short",
+    "name": "Боди с коротким рукавом",
+    "description": "pale sky-blue cotton infant bodysuit with short sleeves, envelope neckline and three crotch snaps",
+    "group": "TOP",
+    "warmth": 0,
+    "min_c": 20,
+    "max_c": 60,
+    "min_months": 0
+  },
+  {
+    "id": "body_long",
+    "name": "Боди с длинным рукавом",
+    "description": "sage-green cotton infant bodysuit with full-length long sleeves, envelope neckline, open legs and three crotch snaps; no long trousers attached",
+    "group": "TOP",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 22,
+    "min_months": 0
+  },
+  {
+    "id": "body_wrap",
+    "name": "Боди на запах",
+    "description": "cream newborn long-sleeved wrap-front kimono bodysuit, visible diagonal crossover front with side snaps and crotch snaps; open leg openings, no attached trousers",
+    "group": "TOP",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 24,
+    "min_months": 0
+  },
+  {
+    "id": "body_sleeveless",
+    "name": "Боди без рукавов",
+    "description": "powder-pink sleeveless infant bodysuit, shoulder straps, round neckline and three crotch snaps, no sleeves and no legs attached",
+    "group": "TOP",
+    "warmth": 0,
+    "min_c": 24,
+    "max_c": 60,
+    "min_months": 0
+  },
+  {
+    "id": "undershirt",
+    "name": "Распашонка",
+    "description": "cream newborn traditional wrap-front undershirt, long sleeves and crossover front opening, hem ending at waist, no attached crotch or trousers",
+    "group": "TOP",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 25,
+    "min_months": 0
+  },
+  {
+    "id": "tshirt",
+    "name": "Футболка",
+    "description": "dusty-blue toddler cotton T-shirt with short sleeves and round neck, ordinary straight waist hem, not a bodysuit",
+    "group": "TOP",
+    "warmth": 0,
+    "min_c": 20,
+    "max_c": 60,
+    "min_months": 3
+  },
+  {
+    "id": "longsleeve",
+    "name": "Лонгслив",
+    "description": "sage toddler cotton long-sleeved T-shirt, crew neck and straight waist hem, visibly thin jersey not a sweatshirt",
+    "group": "TOP",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 22,
+    "min_months": 3
+  },
+  {
+    "id": "tank",
+    "name": "Майка",
+    "description": "pale peach toddler cotton tank top with shoulder straps, sleeveless, straight waist hem; not a bodysuit",
+    "group": "TOP",
+    "warmth": 0,
+    "min_c": 25,
+    "max_c": 60,
+    "min_months": 6
+  },
+  {
+    "id": "shirt",
+    "name": "Рубашка",
+    "description": "light-blue toddler woven cotton button-up collared shirt, long sleeves with small cuffs, clear little buttons, straight hem",
+    "group": "TOP",
+    "warmth": 1,
+    "min_c": 15,
+    "max_c": 26,
+    "min_months": 6
+  },
+  {
+    "id": "thermal_top",
+    "name": "Термолонгслив",
+    "description": "muted charcoal infant thermal long-sleeve base layer top, fine waffle knit fabric, snug raglan sleeves, crew neck and flatlock seams",
+    "group": "TOP",
+    "warmth": 2,
+    "min_c": -60,
+    "max_c": 8,
+    "min_months": 6
+  },
+  {
+    "id": "sliders",
+    "name": "Ползунки с закрытой стопой",
+    "description": "cream infant cotton footed pants, soft elastic waistband, two full-length legs with permanently enclosed little feet; show enclosed feet clearly",
+    "group": "BOTTOM",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 23,
+    "min_months": 0
+  },
+  {
+    "id": "baby_pants",
+    "name": "Мягкие штанишки",
+    "description": "sage soft infant cotton pants with elastic waist, loose tapered full-length legs with open ankles, no feet attached",
+    "group": "BOTTOM",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 25,
+    "min_months": 0
+  },
+  {
+    "id": "leggings",
+    "name": "Легинсы",
+    "description": "dusty-rose toddler leggings with elastic waist and narrow full-length legs with open ankles; soft stretch jersey",
+    "group": "BOTTOM",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 24,
+    "min_months": 3
+  },
+  {
+    "id": "trousers",
+    "name": "Брюки",
+    "description": "sand-beige toddler woven trousers with small side pockets, waistband and neat full-length straight legs, real woven cloth",
+    "group": "BOTTOM",
+    "warmth": 1,
+    "min_c": 5,
+    "max_c": 25,
+    "min_months": 6
+  },
+  {
+    "id": "joggers",
+    "name": "Джоггеры",
+    "description": "dusty-blue toddler cotton jogger pants with elastic drawstring waist and ribbed ankle cuffs, soft fleece-backed jersey",
+    "group": "BOTTOM",
+    "warmth": 1,
+    "min_c": -5,
+    "max_c": 22,
+    "min_months": 6
+  },
+  {
+    "id": "shorts",
+    "name": "Шорты",
+    "description": "pale sage toddler cotton shorts with elastic waistband, small pockets and two clearly short legs",
+    "group": "BOTTOM",
+    "warmth": 0,
+    "min_c": 22,
+    "max_c": 60,
+    "min_months": 6
+  },
+  {
+    "id": "bloomers",
+    "name": "Трусики-блумеры",
+    "description": "cream infant cotton bloomer shorts with gently puffed shape, elastic waist and gathered elastic leg openings, no attached top",
+    "group": "BOTTOM",
+    "warmth": 0,
+    "min_c": 24,
+    "max_c": 60,
+    "min_months": 0
+  },
+  {
+    "id": "thermal_bottom",
+    "name": "Термолегинсы",
+    "description": "charcoal toddler thermal base layer leggings with fine waffle texture, flatlock seams and long narrow legs",
+    "group": "BOTTOM",
+    "warmth": 2,
+    "min_c": -60,
+    "max_c": 8,
+    "min_months": 6
+  },
+  {
+    "id": "tights",
+    "name": "Колготки",
+    "description": "cream infant knitted tights: single elastic waistband, two long narrow legs terminating in enclosed knitted feet",
+    "group": "BOTTOM",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 18,
+    "min_months": 3
+  },
+  {
+    "id": "skirt",
+    "name": "Юбка",
+    "description": "dusty-rose toddler gathered skirt with elastic waistband, soft woven cotton and no attached top or trousers",
+    "group": "BOTTOM",
+    "warmth": 0,
+    "min_c": 18,
+    "max_c": 30,
+    "min_months": 6
+  },
+  {
+    "id": "sleepsuit",
+    "name": "Хлопковый слип",
+    "description": "cream cotton infant sleepsuit, full-length long sleeves and long legs with enclosed feet, visible front snaps extending from round neckline down to crotch and along inner leg; flat lay",
+    "group": "ONE",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 23,
+    "min_months": 0
+  },
+  {
+    "id": "romper",
+    "name": "Песочник",
+    "description": "pale peach infant summer romper playsuit, short sleeves, distinct SHORT trouser legs ending above the knees and crotch snaps, not a legless bodysuit",
+    "group": "ONE",
+    "warmth": 0,
+    "min_c": 22,
+    "max_c": 60,
+    "min_months": 0
+  },
+  {
+    "id": "cotton_overall",
+    "name": "Хлопковый комбинезон",
+    "description": "pale sky-blue cotton infant one-piece overall, long sleeves and long legs with OPEN ankle cuffs, practical front zipper, no enclosed feet",
+    "group": "ONE",
+    "warmth": 1,
+    "min_c": -60,
+    "max_c": 23,
+    "min_months": 0
+  },
+  {
+    "id": "dress",
+    "name": "Платье",
+    "description": "soft dusty-rose toddler cotton dress, short sleeves, round neckline, gathered waist and gently flared skirt, no embroidery",
+    "group": "ONE",
+    "warmth": 0,
+    "min_c": 20,
+    "max_c": 35,
+    "min_months": 6
+  },
+  {
+    "id": "dungarees",
+    "name": "Полукомбинезон",
+    "description": "sand-beige toddler cotton dungarees, clear bib front, two shoulder straps with buckles, little front pocket, long open-ended trouser legs, no shirt underneath",
+    "group": "ONE",
+    "warmth": 1,
+    "min_c": 10,
+    "max_c": 25,
+    "min_months": 6
+  },
+  {
+    "id": "pyjamas",
+    "name": "Пижама",
+    "description": "one matched toddler cream pajama SET arranged neatly together: long-sleeved soft cotton top and full-length matching pants, both complete and separated enough to identify",
+    "group": "ONE",
+    "warmth": 1,
+    "min_c": 10,
+    "max_c": 25,
+    "min_months": 3
+  },
+  {
+    "id": "cardigan",
+    "name": "Кардиган",
+    "description": "sage-green infant knitted cardigan, long sleeves, round neckline, front row of small buttons, fine knit and ribbed cuffs",
+    "group": "MID",
+    "warmth": 1,
+    "min_c": 12,
+    "max_c": 23,
+    "min_months": 0
+  },
+  {
+    "id": "sweatshirt",
+    "name": "Свитшот",
+    "description": "dusty-blue toddler sweatshirt with long raglan sleeves, crew neck, ribbed cuffs and waist; soft medium-weight cotton, no hood or zipper",
+    "group": "MID",
+    "warmth": 1,
+    "min_c": 10,
+    "max_c": 22,
+    "min_months": 3
+  },
+  {
+    "id": "hoodie",
+    "name": "Толстовка с капюшоном",
+    "description": "sand-beige toddler hooded sweatshirt with full long sleeves and front kangaroo pocket, NO neck drawstrings, soft cotton jersey",
+    "group": "MID",
+    "warmth": 1,
+    "min_c": 8,
+    "max_c": 20,
+    "min_months": 3
+  },
+  {
+    "id": "fleece_jacket",
+    "name": "Флисовая кофта",
+    "description": "cream toddler zip-front fleece jacket, clearly fluffy short-pile fleece fabric, stand-up collar, long sleeves and side pockets; no hood",
+    "group": "MID",
+    "warmth": 2,
+    "min_c": -60,
+    "max_c": 15,
+    "min_months": 0
+  },
+  {
+    "id": "sweater",
+    "name": "Вязаный джемпер",
+    "description": "sage toddler warm knitted pullover sweater, crew neck, long sleeves, visibly chunky wool knit and ribbed cuffs, no front opening",
+    "group": "MID",
+    "warmth": 2,
+    "min_c": -60,
+    "max_c": 15,
+    "min_months": 3
+  },
+  {
+    "id": "vest",
+    "name": "Жилет",
+    "description": "dusty-blue toddler sleeveless padded vest, clearly no sleeves, full front zipper, subtle horizontal quilting and stand collar",
+    "group": "MID",
+    "warmth": 1,
+    "min_c": 5,
+    "max_c": 20,
+    "min_months": 3
+  },
+  {
+    "id": "fleece_suit",
+    "name": "Флисовый комбинезон",
+    "description": "cream infant fleece one-piece under-suit, long sleeves and long legs with open cuffs, long diagonal zipper, visibly soft fuzzy fleece; no hood and no bulky outer insulation",
+    "group": "MID",
+    "warmth": 2,
+    "min_c": -60,
+    "max_c": 12,
+    "min_months": 0
+  },
+  {
+    "id": "wool_suit",
+    "name": "Шерстяная поддёва",
+    "description": "sand infant merino wool knitted one-piece under-suit, long sleeves and long legs, fine wool knit texture, front small buttons, no hood",
+    "group": "MID",
+    "warmth": 2,
+    "min_c": -60,
+    "max_c": 10,
+    "min_months": 0
+  },
+  {
+    "id": "windbreaker",
+    "name": "Ветровка",
+    "description": "pale sage toddler lightweight hooded windbreaker jacket, thin smooth wind-resistant fabric, long sleeves, full front zipper and pockets, no insulation",
+    "group": "OUTER",
+    "warmth": 0,
+    "min_c": 12,
+    "max_c": 24,
+    "min_months": 3
+  },
+  {
+    "id": "raincoat",
+    "name": "Дождевик",
+    "description": "muted mustard-yellow toddler waterproof raincoat, hood, long sleeves, long coat hem, front covered snap closure, smooth matte waterproof fabric; NO person",
+    "group": "OUTER",
+    "warmth": 0,
+    "min_c": 10,
+    "max_c": 26,
+    "min_months": 6
+  },
+  {
+    "id": "rain_suit",
+    "name": "Непромокаемый комбинезон",
+    "description": "sage toddler one-piece waterproof rain coverall, hood, long sleeves and full-length legs, front zipper and elastic ankle cuffs, thin unpadded waterproof material",
+    "group": "OUTER",
+    "warmth": 1,
+    "min_c": 5,
+    "max_c": 20,
+    "min_months": 0
+  },
+  {
+    "id": "demi_suit",
+    "name": "Демисезонный комбинезон",
+    "description": "dusty-blue infant lightly padded midseason one-piece coverall, hood, long sleeves and full-length legs with open cuffs, front zipper, moderate insulation not a thick winter snowsuit",
+    "group": "OUTER",
+    "warmth": 2,
+    "min_c": -2,
+    "max_c": 14,
+    "min_months": 0
+  },
+  {
+    "id": "demi_jacket",
+    "name": "Демисезонная куртка",
+    "description": "sage toddler midseason jacket, hood, full sleeves and front zipper, lightly padded fabric with practical pockets, moderate insulation",
+    "group": "OUTER",
+    "warmth": 2,
+    "min_c": 0,
+    "max_c": 15,
+    "min_months": 6
+  },
+  {
+    "id": "winter_suit",
+    "name": "Зимний комбинезон",
+    "description": "dusty-rose infant winter one-piece snowsuit with fleece-lined hood, padded full sleeves and full-length padded legs with open cuffs, clearly visible quilting and front zipper, thick realistic insulation",
+    "group": "OUTER",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 4,
+    "min_months": 0
+  },
+  {
+    "id": "winter_jacket",
+    "name": "Зимняя куртка",
+    "description": "dusty-blue toddler winter parka jacket, fleece-lined hood, full padded sleeves, insulated body with pockets and zipper, ending at hips, no trousers attached",
+    "group": "OUTER",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 4,
+    "min_months": 6
+  },
+  {
+    "id": "snow_pants",
+    "name": "Утеплённый полукомбинезон",
+    "description": "charcoal toddler insulated snow bib pants: high bib front, two shoulder suspenders, thick quilted full-length trouser legs and reinforced knees, NO jacket",
+    "group": "OUTER_BOTTOM",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 5,
+    "min_months": 6
+  },
+  {
+    "id": "demi_pants",
+    "name": "Демисезонные непромокаемые брюки",
+    "description": "sage toddler midseason waterproof overtrousers, elastic waist, full-length legs, reinforced knee panels, moderately thick fabric, NO attached top",
+    "group": "OUTER_BOTTOM",
+    "warmth": 2,
+    "min_c": 0,
+    "max_c": 15,
+    "min_months": 6
+  },
+  {
+    "id": "rain_pants",
+    "name": "Дождевые брюки",
+    "description": "muted mustard toddler lightweight waterproof rain trousers, elastic waist, thin smooth waterproof fabric, full-length legs and elastic ankles, NO attached top",
+    "group": "OUTER_BOTTOM",
+    "warmth": 0,
+    "min_c": 10,
+    "max_c": 25,
+    "min_months": 9
+  },
+  {
+    "id": "bonnet",
+    "name": "Хлопковый чепчик",
+    "description": "cream newborn cotton bonnet, shaped crown, face opening and short soft fabric ties arranged loosely beside it; only hat, not a baby head",
+    "group": "HEAD",
+    "warmth": 1,
+    "min_c": 10,
+    "max_c": 20,
+    "min_months": 0
+  },
+  {
+    "id": "beanie",
+    "name": "Тонкая шапка",
+    "description": "sage thin infant cotton beanie hat, soft rounded crown and folded brim, clearly lightweight fine jersey fabric",
+    "group": "HEAD",
+    "warmth": 1,
+    "min_c": 5,
+    "max_c": 18,
+    "min_months": 0
+  },
+  {
+    "id": "warm_hat",
+    "name": "Тёплая шапка",
+    "description": "cream warm infant knitted winter hat with ear flaps, fleece-lined opening and a small knitted pom-pom, substantial wool texture",
+    "group": "HEAD",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 8,
+    "min_months": 0
+  },
+  {
+    "id": "balaclava",
+    "name": "Шапка-шлем",
+    "description": "dusty-blue toddler knitted winter balaclava helmet hat, ONE face opening, covered neck and short shoulder bib, no person inside",
+    "group": "HEAD",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 5,
+    "min_months": 3
+  },
+  {
+    "id": "sunhat",
+    "name": "Панама",
+    "description": "cream toddler cotton bucket sunhat with broad soft brim all around and round crown, realistic stitching, no decorative writing",
+    "group": "HEAD",
+    "warmth": 0,
+    "min_c": 18,
+    "max_c": 60,
+    "min_months": 0
+  },
+  {
+    "id": "cap",
+    "name": "Кепка",
+    "description": "dusty-blue toddler baseball cap with soft round crown, curved front visor and small adjustable back strap, no logos",
+    "group": "HEAD",
+    "warmth": 0,
+    "min_c": 18,
+    "max_c": 60,
+    "min_months": 9
+  },
+  {
+    "id": "socks",
+    "name": "Тонкие носки",
+    "description": "ONE PAIR of thin cream infant cotton ankle socks, both clearly visible, fine soft knit",
+    "group": "SOCKS",
+    "warmth": 1,
+    "min_c": 0,
+    "max_c": 28,
+    "min_months": 0
+  },
+  {
+    "id": "warm_socks",
+    "name": "Тёплые носки",
+    "description": "ONE PAIR of thick sand-colored infant wool socks with ribbed cuffs, both visible, visibly warm knitted texture",
+    "group": "SOCKS",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 12,
+    "min_months": 0
+  },
+  {
+    "id": "booties",
+    "name": "Мягкие пинетки",
+    "description": "ONE PAIR of pale sage soft infant cotton booties with flexible fabric soles and gentle ankle cuffs, no rigid walking soles",
+    "group": "SHOES",
+    "warmth": 1,
+    "min_c": 10,
+    "max_c": 25,
+    "min_months": 0
+  },
+  {
+    "id": "warm_booties",
+    "name": "Утеплённые пинетки",
+    "description": "ONE PAIR of cream warm infant padded booties with soft fleece lining and flexible textile soles, no rigid walking soles",
+    "group": "SHOES",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 10,
+    "min_months": 0
+  },
+  {
+    "id": "sandals",
+    "name": "Сандалии",
+    "description": "ONE PAIR of sand-beige toddler sandals with adjustable Velcro straps, open breathable sections, flexible rubber soles, both shoes visible and no human feet",
+    "group": "SHOES",
+    "warmth": 0,
+    "min_c": 22,
+    "max_c": 60,
+    "min_months": 9
+  },
+  {
+    "id": "sneakers",
+    "name": "Кроссовки",
+    "description": "ONE PAIR of dusty-blue toddler sneakers with two Velcro straps each, realistic woven uppers and flexible rubber soles, no loose laces or brands",
+    "group": "SHOES",
+    "warmth": 1,
+    "min_c": 10,
+    "max_c": 26,
+    "min_months": 9
+  },
+  {
+    "id": "demi_boots",
+    "name": "Демисезонные ботинки",
+    "description": "ONE PAIR of sand toddler ankle boots for midseason, two Velcro straps, practical rubber soles, smooth matte leather uppers, modest lining",
+    "group": "SHOES",
+    "warmth": 2,
+    "min_c": 0,
+    "max_c": 15,
+    "min_months": 9
+  },
+  {
+    "id": "winter_boots",
+    "name": "Зимние ботинки",
+    "description": "ONE PAIR of beige toddler winter boots, warm fleece lining, two Velcro closures, textured rubber soles, both boots complete, same style as approved reference",
+    "group": "SHOES",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 5,
+    "min_months": 9
+  },
+  {
+    "id": "rain_boots",
+    "name": "Резиновые сапоги",
+    "description": "ONE PAIR of muted mustard toddler rubber rain boots with rounded toes, tall smooth shafts and short pull handles, realistic waterproof rubber",
+    "group": "SHOES",
+    "warmth": 1,
+    "min_c": 8,
+    "max_c": 22,
+    "min_months": 12
+  },
+  {
+    "id": "mittens",
+    "name": "Тёплые варежки",
+    "description": "ONE PAIR of cream knitted warm toddler mittens, separate little THUMB shapes and rounded single finger compartments, ribbed cuffs",
+    "group": "HANDS",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 5,
+    "min_months": 0
+  },
+  {
+    "id": "gloves",
+    "name": "Лёгкие перчатки",
+    "description": "ONE PAIR of sage lightweight toddler knitted gloves, each with FIVE distinct fingers, ribbed cuffs, complete pair visible",
+    "group": "HANDS",
+    "warmth": 1,
+    "min_c": 0,
+    "max_c": 12,
+    "min_months": 18
+  },
+  {
+    "id": "scratch_mitts",
+    "name": "Хлопковые рукавички",
+    "description": "ONE PAIR of cream newborn cotton scratch mittens, rounded bag-like hand shapes with elastic cuffs and NO separate thumbs or fingers",
+    "group": "HANDS",
+    "warmth": 0,
+    "min_c": 10,
+    "max_c": 25,
+    "min_months": 0
+  },
+  {
+    "id": "footmuff",
+    "name": "Конверт для коляски",
+    "description": "cream padded stroller footmuff sleeping envelope, rounded hooded top opening and long quilted enclosed lower sack, side zipper; EMPTY, no baby, no stroller",
+    "group": "STROLLER",
+    "warmth": 3,
+    "min_c": -60,
+    "max_c": 8,
+    "min_months": 0
+  },
+  {
+    "id": "blanket",
+    "name": "Лёгкий плед",
+    "description": "pale sage lightweight baby knitted blanket neatly folded with one corner draped open to show fine texture and stitched border",
+    "group": "STROLLER",
+    "warmth": 1,
+    "min_c": 8,
+    "max_c": 20,
+    "min_months": 0
+  },
+  {
+    "id": "stroller_rain",
+    "name": "Дождевик для коляски",
+    "description": "clear transparent ventilated stroller rain cover fitted on ONE simple empty compact baby stroller, show transparent canopy and its small ventilation openings, stroller subordinate to the clear cover, no baby",
+    "group": "STROLLER",
+    "warmth": 0,
+    "min_c": -5,
+    "max_c": 25,
+    "min_months": 0
+  },
+  {
+    "id": "sunshade",
+    "name": "Козырёк от солнца",
+    "description": "pale beige detachable fabric stroller sunshade canopy, curved taut textile hood with visible attachment clips, standalone product, not a hat or umbrella",
+    "group": "STROLLER",
+    "warmth": 0,
+    "min_c": 15,
+    "max_c": 60,
+    "min_months": 0
+  },
+  {
+    "id": "bag_diaper",
+    "name": "Подгузник",
+    "description": "one clean unused white disposable baby diaper opened flat, complete elastic leg gathers, clearly visible fastening tabs and soft white absorbent lining, like the approved reference"
+  },
+  {
+    "id": "bag_wipes",
+    "name": "Влажные салфетки",
+    "description": "one compact soft pack of baby wet wipes, sage packaging with a white oval flip lid slightly open and one white wipe emerging; completely unbranded with no text"
+  },
+  {
+    "id": "bag_bags",
+    "name": "Пакеты для использованных вещей",
+    "description": "one small roll of translucent biodegradable disposal bags, one bag partly unrolled to clearly show its shape and opening, no other items"
+  },
+  {
+    "id": "bag_swaddle",
+    "name": "Пелёнка",
+    "description": "one cream muslin baby swaddle cloth neatly folded, one corner softly unfolded to show thin woven gauze texture and stitched hem"
+  },
+  {
+    "id": "bag_bottle",
+    "name": "Бутылочка",
+    "description": "one clear infant feeding bottle with pale-blue collar and soft transparent silicone nipple, realistic transparent plastic or glass and small simple graduation ticks WITHOUT any words or numbers, a little milk inside"
+  },
+  {
+    "id": "bag_formula",
+    "name": "Смесь",
+    "description": "one plain cylindrical infant formula powder tin, pale blue body and cream plastic lid, small plain measuring scoop placed beside the tin, no label text or branding"
+  },
+  {
+    "id": "bag_water",
+    "name": "Вода",
+    "description": "one clear small water bottle filled with water, pale-blue screw cap and completely blank label, no marks or brand"
+  },
+  {
+    "id": "bag_snack",
+    "name": "Перекус",
+    "description": "one small open beige toddler snack container with a few simple plain crackers and apple slices neatly inside, no crumbs or decorative props"
+  },
+  {
+    "id": "bag_cup",
+    "name": "Поильник",
+    "description": "one sage toddler two-handled sippy cup with a practical short spout and lid, realistic smooth food-grade plastic, no text"
+  },
+  {
+    "id": "bag_toy",
+    "name": "Игрушка",
+    "description": "one small beige soft plush teddy bear for a toddler, realistically sewn short plush fabric, stitched eyes and nose, arms and legs complete, no accessories"
+  },
+  {
+    "id": "bag_documents",
+    "name": "Документы",
+    "description": "a small tidy stack of plain cream paper documents in one transparent travel document pouch, no legible writing, no faces, no official emblems or personal details"
+  },
+  {
+    "id": "bag_medical_notes",
+    "name": "Медицинские записи",
+    "description": "one small plain cream medical record notebook open to two mostly blank ruled pages with a small simple pale-blue medical cross on a corner, no writing or names"
+  },
+  {
+    "id": "bag_bib",
+    "name": "Нагрудник",
+    "description": "one pale sage soft silicone baby bib with neck fastening and a clearly shaped food-catching pocket at the bottom, realistic flexible silicone"
+  },
+  {
+    "id": "bag_towel",
+    "name": "Полотенце",
+    "description": "one cream baby hooded bath towel folded to clearly show its triangular corner hood, realistic soft terry fabric"
+  },
+  {
+    "id": "bag_swim",
+    "name": "Купальные принадлежности",
+    "description": "one neatly arranged toddler swimming kit of a small pale-blue swim diaper and simple beige toddler swim trunks, both fully visible, no people"
+  },
+  {
+    "id": "bag_nursing_pads",
+    "name": "Вкладыши для кормления",
+    "description": "one PAIR of round white disposable absorbent breastfeeding pads, overlapping slightly, clearly soft fabric layers and rounded edges, no breast or person"
+  },
+  {
+    "id": "bag_pacifier",
+    "name": "Пустышка",
+    "description": "one pale-sage baby pacifier, realistic transparent silicone nipple, ventilated shield and simple ring handle, complete standalone product"
+  },
+  {
+    "id": "bag_cream",
+    "name": "Крем",
+    "description": "one small plain cream-colored baby skin cream tube with closed sage cap, realistic tube shape, no text or branding"
+  },
+  {
+    "id": "bag_thermos",
+    "name": "Термос",
+    "description": "one matte sand-beige small stainless steel vacuum thermos flask with a simple screw cup lid, complete standalone object, no brand or text"
+  },
+  {
+    "id": "bag_changing_mat",
+    "name": "Коврик для переодевания",
+    "description": "one pale-blue portable baby changing mat opened flat, softly padded rectangular wipe-clean surface, stitched border and folding seams, no baby"
+  },
+  {
+    "id": "bag_stroller",
+    "name": "Коляска",
+    "description": "one complete empty compact sage baby stroller with canopy, practical handle, four wheels and harness, three-quarter product view, no baby"
+  },
+  {
+    "id": "bag_carrier",
+    "name": "Переноска",
+    "description": "one empty beige ergonomic soft structured baby carrier, visibly padded shoulder straps, adjustable buckles, broad waist belt and central baby pouch; standalone no adult or infant"
+  },
+  {
+    "id": "bag_carseat",
+    "name": "Автокресло",
+    "description": "one complete empty beige rear-facing infant car seat carrier with arch carry handle, padded head support and realistic five-point harness, three-quarter product view, no baby and no car"
+  },
+  {
+    "id": "bag_medicine",
+    "name": "Назначенные средства",
+    "description": "one closed plain amber medicine bottle with a white child-resistant cap, completely blank cream label, no writing, no pills or dosing instructions"
+  },
+  {
+    "id": "bag_phone",
+    "name": "Телефон",
+    "description": "one modern generic smartphone with dark inactive screen and matte neutral case, front three-quarter view, no logo, no app UI or text"
+  },
+  {
+    "id": "bag_keys",
+    "name": "Ключи",
+    "description": "one simple metal key ring with two realistic house keys, no brand or address tags, standalone product photograph"
+  },
+  {
+    "id": "bag_container",
+    "name": "Контейнер",
+    "description": "one small clear baby food storage container with sage airtight lid placed slightly ajar beside it, realistic transparent food-safe plastic, empty and no text"
+  },
+  {
+    "id": "bag_bag",
+    "name": "Своя вещь",
+    "description": "one small beige canvas baby essentials tote bag with two short handles, softly structured sides and a practical front pocket, empty, unbranded, no lettering"
+  }
+]

@@ -59,7 +59,7 @@ private val destinations=listOf(Destination("home","Главная",R.drawable.i
    Text("Всё готово.\nМожно просто быть рядом.",style=MaterialTheme.typography.headlineMedium)
    Row(verticalAlignment=Alignment.CenterVertically) {
     Text("Подскажем, что взять с собой и как одеть малыша.",style=MaterialTheme.typography.bodyMedium,modifier=Modifier.weight(1f))
-    BagArt(Modifier.widthIn(max=100.dp))
+    ItemPicture("bag_bag",null,"Сумка для малыша",Modifier.size(100.dp))
    }
    Button(onClick=onCreate,modifier=Modifier.fillMaxWidth().heightIn(min=54.dp)) {Glyph(R.drawable.ic_plus);Spacer(Modifier.width(8.dp));Text("Собраться на выход")}
   }

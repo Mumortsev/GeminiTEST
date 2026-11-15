@@ -1,0 +1,149 @@
+{
+  "singles": [
+    "body_short",
+    "body_long",
+    "body_wrap",
+    "body_sleeveless",
+    "undershirt",
+    "tshirt",
+    "longsleeve",
+    "tank",
+    "shirt",
+    "thermal_top",
+    "sliders",
+    "baby_pants",
+    "leggings",
+    "trousers",
+    "joggers",
+    "shorts",
+    "bloomers",
+    "thermal_bottom",
+    "tights",
+    "skirt",
+    "sleepsuit",
+    "romper",
+    "cotton_overall",
+    "dress",
+    "dungarees",
+    "pyjamas",
+    "cardigan",
+    "sweatshirt",
+    "hoodie",
+    "fleece_jacket",
+    "sweater",
+    "vest",
+    "fleece_suit",
+    "wool_suit",
+    "windbreaker",
+    "raincoat",
+    "rain_suit",
+    "demi_suit",
+    "demi_jacket",
+    "winter_suit",
+    "winter_jacket",
+    "snow_pants",
+    "demi_pants",
+    "rain_pants",
+    "bonnet",
+    "beanie",
+    "warm_hat",
+    "balaclava",
+    "sunhat",
+    "cap",
+    "socks",
+    "booties",
+    "warm_booties"
+  ],
+  "sheets": [
+    {
+      "id": "photo_sheet_01",
+      "columns": 3,
+      "rows": 2,
+      "items": [
+        "warm_socks",
+        "sandals",
+        "sneakers",
+        "demi_boots",
+        "winter_boots",
+        "rain_boots"
+      ]
+    },
+    {
+      "id": "photo_sheet_02",
+      "columns": 3,
+      "rows": 2,
+      "items": [
+        "mittens",
+        "gloves",
+        "scratch_mitts",
+        "footmuff",
+        "blanket",
+        "stroller_rain"
+      ]
+    },
+    {
+      "id": "photo_sheet_03",
+      "columns": 3,
+      "rows": 2,
+      "items": [
+        "sunshade",
+        "bag_diaper",
+        "bag_wipes",
+        "bag_bags",
+        "bag_swaddle",
+        "bag_bottle"
+      ]
+    },
+    {
+      "id": "photo_sheet_04",
+      "columns": 3,
+      "rows": 2,
+      "items": [
+        "bag_formula",
+        "bag_water",
+        "bag_snack",
+        "bag_cup",
+        "bag_toy",
+        "bag_documents"
+      ]
+    },
+    {
+      "id": "photo_sheet_05",
+      "columns": 3,
+      "rows": 2,
+      "items": [
+        "bag_medical_notes",
+        "bag_bib",
+        "bag_towel",
+        "bag_swim",
+        "bag_nursing_pads",
+        "bag_pacifier"
+      ]
+    },
+    {
+      "id": "photo_sheet_06",
+      "columns": 3,
+      "rows": 2,
+      "items": [
+        "bag_cream",
+        "bag_thermos",
+        "bag_changing_mat",
+        "bag_stroller",
+        "bag_carrier",
+        "bag_carseat"
+      ]
+    },
+    {
+      "id": "photo_sheet_07",
+      "columns": 3,
+      "rows": 2,
+      "items": [
+        "bag_medicine",
+        "bag_phone",
+        "bag_keys",
+        "bag_container",
+        "bag_bag"
+      ]
+    }
+  ]
+}
